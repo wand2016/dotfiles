@@ -1,6 +1,6 @@
 (setq w32-pass-apps-to-system nil
-      w32-apps-modifier 'hyper
-	  w32-scroll-lock-modifier 'super)
+      w32-apps-modifier 'super
+	  w32-scroll-lock-modifier 'hyper)
 
 
 ;; C-mにnewline-and-indentを割り当てる
