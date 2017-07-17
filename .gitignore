@@ -3,3 +3,4 @@ backups/*
 bookmarks/*
 .python-environments/*
 *.tern-port
+undohist/*
