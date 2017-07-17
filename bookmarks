@@ -1,0 +1,20 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("2"
+ (filename . "~/dotfiles/.emacs.d/conf/key-bind-config.el")
+ (front-context-string . "(define-key glob")
+ (rear-context-string . "apitalize-dwim)\n")
+ (position . 1021))
+("1"
+ (filename . "~/dotfiles/.emacs.d/conf/key-bind-config.el")
+ (front-context-string . "(define-key glob")
+ (rear-context-string . "case-word -1)))\n")
+ (position . 867))
+("key-bind-config.el"
+ (filename . "~/dotfiles/.emacs.d/conf/key-bind-config.el")
+ (front-context-string . "(define-key glob")
+ (rear-context-string . "case-word -1)))\n")
+ (position . 867))
+)
