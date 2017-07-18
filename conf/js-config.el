@@ -42,7 +42,6 @@
     (list "gjslint" (list temp-file "--nosummary"))))
 
 ;; JavaScript編集でFlymakeを起動する
-										;(flymake-mode t)
 (add-to-list 'flymake-allowed-file-name-masks
 			 '(".+\\.js$"
 			   flymake-gjslint-init
@@ -52,9 +51,9 @@
 (add-to-list 'flymake-err-line-patterns
 			 '("^Line \\([[:digit:]]+\\), E:[[:digit:]]+: "
 			   nil 1 nil))
-;; gjslintを用いたJavaScriptのスタイルチェック
-;;(require 'gjslint nil t)
-(add-hook 'js2-mode-hook 'flymake-mode)
+
+;; スタイルチェック
+;(add-hook 'js2-mode-hook 'flymake-mode)
 
 
 ;; コメントの設定

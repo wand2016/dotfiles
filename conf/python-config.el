@@ -9,11 +9,11 @@
   )
 
 ;; jediによる補完
-(require 'jedi-core)
-(setq jedi:complete-on-dot t)
-(setq jedi:use-shortcuts t)
-(add-hook 'python-mode-hook 'jedi:setup)
-(add-to-list 'company-backends 'company-jedi) ; backendに追加
+(when (require 'jedi-core nil t)
+  (setq jedi:complete-on-dot t)
+  (setq jedi:use-shortcuts t)
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (add-to-list 'company-backends 'company-jedi)) ; backendに追加
 
 (provide 'python-config)
 

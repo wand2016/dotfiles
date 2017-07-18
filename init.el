@@ -60,11 +60,6 @@
   (auto-install-compatibility-setup))
 
 
-;;;========================================
-;;; キーバインド
-;;; conf/key-bind-config.el
-;;;========================================
-(require 'key-bind-config)
 
 
 ;;;==========================================
@@ -78,10 +73,7 @@
 ;;; conf/frame-config.el
 ;;;========================================
 (require 'frame-config)
-;; ツールバーを非表示
-(tool-bar-mode nil)
-;; メニューバーを非表示
-(menu-bar-mode nil)
+
 
 ;;;==========================================
 ;;; 機能追加
@@ -141,8 +133,26 @@
 (require 'moccur-edit nil t)
 
 ;; ace-jumpの設定
-(when (require 'ace-jump-mode nil t)
-  (define-key global-map (kbd "C-c SPC") 'ace-jump-mode))
+(require 'ace-jump-config)
+
+;; print
+(defun my-printout-region (begin end)
+  (interactive "r")
+  (shell-command-on-region begin end (format "PrFile32 /q /-")))
+(defun my-printout-buffer ()
+  (interactive)
+  (my-printout-region (point-min) (point-max)))
+
+;; タブ/タブ解除
+(defun untabify-buffer ()
+  (interactive)
+  (untabify (buffer-end -1) (buffer-end 1)))
+(defun tabify-buffer ()
+  (interactive)
+  (tabify (buffer-end -1) (buffer-end 1)))
+
+
+
 
 ;; ========================================
 ;;  各種言語の設定
@@ -164,6 +174,15 @@
 (require 'shinchoku-config)
 
 
+
+;;;========================================
+;;; キーバインド
+;;; 追加機能とかのもあるのでさいご
+;;; conf/key-bind-config.el
+;;;========================================
+(require 'key-bind-config)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -178,7 +197,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-
-(add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 (put 'scroll-left 'disabled nil)

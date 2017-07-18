@@ -66,4 +66,6 @@ second, does the flymake error message (if any) get displayed."
 		  (symbol-function 'flymake-popup-current-error-menu))))
 
 
+;; 軽くなる？
+
 (provide 'my-flymake-config)
