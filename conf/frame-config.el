@@ -31,11 +31,15 @@
 ;; 初期フレームの設定
 (setq initial-frame-alist
       (append
-       '((top                 . 22)    ; フレームの Y 位置(ピクセル数)
-		 (left                . 50)   ; フレームの X 位置(ピクセル数)
-		 (width               . 80)    ; フレーム幅(文字数)
-		 (height              . 40))   ; フレーム高(文字数)
+       '(;(top . 10) (left . 30)
+		 (width . 80) (height . 40))
        initial-frame-alist))
+
+(setq default-frame-alist
+      (append
+	   '((width . 70) (height . 35))
+	   default-frame-alist))
+
 
 ;; カーソル座標
 (line-number-mode t)
@@ -48,16 +52,22 @@
 ;; タブの表示幅。初期値は8
 (setq-default tab-width 4)
 
-;; 等幅設定
+;; 等幅設定0
 ;;** Consolas + MSゴシック
 (set-default-font "Consolas 10")
 (set-fontset-font (frame-parameter nil 'font)
-                  'japanese-jisx0208
-                  '("ＭＳ ゴシック" . "unicode-bmp")
-                  )
+				  'japanese-jisx0208
+				  '("ＭＳ ゴシック" . "unicode-bmp")
+				  )
 (set-fontset-font (frame-parameter nil 'font)
-                  'katakana-jisx0201
-                  '("ＭＳ ゴシック" . "unicode-bmp")
-                  )
+				  'katakana-jisx0201
+				  '("ＭＳ ゴシック" . "unicode-bmp")
+				  )
+
+
+;; ツールバーを非表示
+(tool-bar-mode -1)
+;; メニューバーを非表示
+(menu-bar-mode -1)
 
 (provide 'frame-config)

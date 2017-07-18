@@ -18,18 +18,27 @@
 ;; shinchoku-modeになったら文法チェック
 (add-hook 'shinchoku-mode-hook 'flymake-mode)
 
+;; shinchoku-modeになったらセーブ時に自動でuntabify
+(add-hook 'shinchoku-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'untabify-buffer nil t)))
+
+
 ;; 自作進捗文法チェッカshinchokuを用いる
 (defun flymake-shinchoku-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-					 'flymake-create-temp-inplace))
-		 (local-file (file-relative-name
-					  temp-file
-					  (file-name-directory buffer-file-name))))
-	(list "shinchoku" (list local-file))))
+                     'flymake-create-temp-inplace))
+         (local-file (file-relative-name
+                      temp-file
+                      (file-name-directory buffer-file-name))))
+    (list "shinchoku" (list local-file))))
 
 (add-to-list 'flymake-allowed-file-name-masks
-			 '(".*shinchoku.txt" flymake-shinchoku-init))
+             '(".*shinchoku.txt" flymake-shinchoku-init))
 (add-to-list 'flymake-err-line-patterns
-			 '("line \\([0-9]+\\):\\(.*\\)" nil 1 nil 2))
+             '("line \\([0-9]+\\):\\(.*\\)" nil 1 nil 2))
+
+
+
 
 (provide 'shinchoku-config)
