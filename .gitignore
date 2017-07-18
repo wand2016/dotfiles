@@ -4,3 +4,5 @@ bookmarks/*
 .python-environments/*
 *.tern-port
 undohist/*
+company-statistics-cache.el
+recentf
