@@ -36,6 +36,9 @@
   ;; M-xをhelm仕様に
   (define-key global-map (kbd "M-x") 'helm-M-x)
 
+  ;; ドットディレクトリに色がついているのが見づらいのでやめる
+  (set-face-background 'helm-ff-dotted-directory nil)
+
 
   (require 'helm-google nil t))
 
