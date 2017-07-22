@@ -3,6 +3,7 @@
 ;; ========================================
 
 (when (require 'helm-config nil t)
+  (helm-mode 1)
   (helm-popup-tip-mode t)
   (setq
    ;; 候補表示までの時間。default : 0.5

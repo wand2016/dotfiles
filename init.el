@@ -170,6 +170,9 @@
 ;; python
 (require 'python-config)
 
+;; csharp
+(require 'csharp-config)
+
 ;; GêiíªïÒçêóp
 (require 'shinchoku-config)
 
@@ -190,7 +193,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(csharp-mode flymake-cursor ace-jump-mode helm-google undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company))))
+	(omnisharp csharp-mode flymake-cursor ace-jump-mode helm-google undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
