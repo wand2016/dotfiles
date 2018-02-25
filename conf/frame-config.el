@@ -54,15 +54,16 @@
 
 ;; 等幅設定0
 ;;** Consolas + MSゴシック
-(set-default-font "Consolas 10")
-(set-fontset-font (frame-parameter nil 'font)
-				  'japanese-jisx0208
-				  '("ＭＳ ゴシック" . "unicode-bmp")
-				  )
-(set-fontset-font (frame-parameter nil 'font)
-				  'katakana-jisx0201
-				  '("ＭＳ ゴシック" . "unicode-bmp")
-				  )
+(when (eq system-type 'windows-nt)
+  (set-default-font "Consolas 10")
+  (set-fontset-font (frame-parameter nil 'font)
+                    'japanese-jisx0208
+                    '("ＭＳ ゴシック" . "unicode-bmp")
+                    )
+  (set-fontset-font (frame-parameter nil 'font)
+                    'katakana-jisx0201
+                    '("ＭＳ ゴシック" . "unicode-bmp")
+                    ))
 
 
 ;; ツールバーを非表示
