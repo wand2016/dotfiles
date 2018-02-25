@@ -173,6 +173,9 @@
 ;; csharp
 (require 'csharp-config)
 
+;; haskell
+(require 'haskell-config)
+
 ;; GêiíªïÒçêóp
 (require 'shinchoku-config)
 
@@ -203,5 +206,4 @@
 (put 'scroll-left 'disabled nil)
 
 
-;; disable popup
-(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
