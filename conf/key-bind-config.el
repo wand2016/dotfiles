@@ -55,6 +55,8 @@
 (define-key global-map (kbd "s-u") 'upcase-last-word)
 (define-key global-map (kbd "s-l") 'downcase-last-word)
 
+;; diredでもC-tでタブ切り替え
+(define-key dired-mode-map (kbd "C-t") 'other-window)
 
 (provide 'key-bind-config)
 
