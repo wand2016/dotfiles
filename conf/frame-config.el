@@ -71,4 +71,10 @@
 ;; メニューバーを非表示
 (menu-bar-mode -1)
 
+;; windowsにて、shellの文字化けを回避
+(when (eq system-type 'windows-nt)
+  (add-hook 'shell-mode-hook
+            (lambda ()
+              (set-buffer-process-coding-system 'sjis 'sjis))))
+
 (provide 'frame-config)

@@ -1,11 +1,5 @@
-;; shell‚Ì•¶š‰»‚¯‚ğ‰ñ”ğ
-(add-hook 'shell-mode-hook
-          (lambda ()
-            (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix)
-            ))
-
-;; Emacs 23‚æ‚è‘O‚Ìƒo[ƒWƒ‡ƒ“‚Å‚Í
-;; user-emacs-directory•Ï”‚ª–¢’è‹`‚Ì‚½‚ßŸ‚Ìİ’è‚ğ’Ç‰Á
+;; Emacs 23ã‚ˆã‚Šå‰ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã¯
+;; user-emacs-directoryå¤‰æ•°ãŒæœªå®šç¾©ã®ãŸã‚æ¬¡ã®è¨­å®šã‚’è¿½åŠ 
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -20,7 +14,7 @@
 ;;; path
 ;;;========================================
 
-;; load-path‚ğ’Ç‰Á‚·‚éŠÖ”‚ğ’è‹`
+;; load-pathã‚’è¿½åŠ ã™ã‚‹é–¢æ•°ã‚’å®šç¾©
 (defun add-to-load-path (&rest paths)
   (let (path)
     (dolist (path paths paths)
@@ -30,14 +24,14 @@
 		(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
 			(normal-top-level-add-subdirs-to-load-path))))))
 
-;; ˆø”‚ÌƒfƒBƒŒƒNƒgƒŠ‚Æ‚»‚ÌƒTƒuƒfƒBƒŒƒNƒgƒŠ‚ğload-path‚É’Ç‰Á
+;; å¼•æ•°ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¨ãã®ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’load-pathã«è¿½åŠ 
 (add-to-load-path "elisp" "conf" "public_repos" "auto-install")
 
-;; ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚Ìì¬êŠ‚ğƒVƒXƒeƒ€‚ÌTempƒfƒBƒŒƒNƒgƒŠ‚É•ÏX
+;; ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆå ´æ‰€ã‚’ã‚·ã‚¹ãƒ†ãƒ ã®Tempãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å¤‰æ›´
 (add-to-list 'backup-directory-alist
 			 (cons "." "~/.emacs.d/backups"))
 
-;; ƒI[ƒgƒZ[ƒuƒtƒ@ƒCƒ‹‚Ìì¬êŠ‚ğƒVƒXƒeƒ€‚ÌTempƒfƒBƒŒƒNƒgƒŠ‚É•ÏX
+;; ã‚ªãƒ¼ãƒˆã‚»ãƒ¼ãƒ–ãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆå ´æ‰€ã‚’ã‚·ã‚¹ãƒ†ãƒ ã®Tempãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å¤‰æ›´
 (setq auto-save-file-name-transforms
 	  `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
 
@@ -48,18 +42,18 @@
 
 ;; package.el
 (when (require 'package nil t)
-  ;; ƒpƒbƒP[ƒWƒŠƒ|ƒWƒgƒŠ‚ÉMarmalade‚ÆŠJ”­Ò‰^‰c‚ÌELPA‚ğ’Ç‰Á
+  ;; ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãƒªãƒã‚¸ãƒˆãƒªã«Marmaladeã¨é–‹ç™ºè€…é‹å–¶ã®ELPAã‚’è¿½åŠ 
   (add-to-list 'package-archives
 			   '("marmalade" . "http://marmalade-repo.org/packages/"))
   (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
-  ;; MELPA‚à’Ç‰Á
+  ;; MELPAã‚‚è¿½åŠ 
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  ;; ƒCƒ“ƒXƒg[ƒ‹‚µ‚½ƒpƒbƒP[ƒW‚Éƒ[ƒhƒpƒX‚ğ’Ê‚µ‚Ä“Ç‚İ‚Ş
+  ;; ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ãŸãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã«ãƒ­ãƒ¼ãƒ‰ãƒ‘ã‚¹ã‚’é€šã—ã¦èª­ã¿è¾¼ã‚€
   (package-initialize))
 
 ;; auto-install
-;; http://www.emacswiki‚ªƒGƒ‰[‚Ì‚à‚Æ‚¾‚Á‚½‚½‚ß
-;; ‘S•”https‚É’¼‚µ‚½B
+;; http://www.emacswikiãŒã‚¨ãƒ©ãƒ¼ã®ã‚‚ã¨ã ã£ãŸãŸã‚
+;; å…¨éƒ¨httpsã«ç›´ã—ãŸã€‚
 (when (require 'auto-install nil t)
   (setq auto-install-directory "~/.emacs.d/elisp/")
   (auto-install-update-emacswiki-package-name t)
@@ -67,50 +61,50 @@
 
 
 ;;;========================================
-;;; ƒ^ƒu‚Íg‚í‚È‚¢
+;;; ã‚¿ãƒ–ã¯ä½¿ã‚ãªã„
 ;;;========================================
 (setq-default indent-tabs-mode nil)
 
 
 ;;;==========================================
-;;; •¶šƒR[ƒhŒn‚Ìİ’è
+;;; æ–‡å­—ã‚³ãƒ¼ãƒ‰ç³»ã®è¨­å®š
 ;;; conf/char-code-config.el
 ;;;==========================================
 (require 'char-code-config)
 
 ;;;========================================
-;;; frame‚Ìİ’è
+;;; frameã®è¨­å®š
 ;;; conf/frame-config.el
 ;;;========================================
 (require 'frame-config)
 
 
 ;;;==========================================
-;;; ‹@”\’Ç‰Á
+;;; æ©Ÿèƒ½è¿½åŠ 
 ;;;========================================
 
-;; cua-mode‚Ìİ’è
-;; ‘f°‚ç‚µ‚¢‹éŒ`•ÒWƒ‚[ƒh‚ª”õ‚í‚Á‚Ä‚¢‚é
-;; CUA : Common User Access ‚Í×–‚‚È‚Ì‚ÅØ‚é
-(cua-mode t) ; cua-mode‚ğƒIƒ“
-(setq cua-enable-cua-keys nil) ; CUAƒL[ƒoƒCƒ“ƒh‚ğ–³Œø‚É‚·‚é
+;; cua-modeã®è¨­å®š
+;; ç´ æ™´ã‚‰ã—ã„çŸ©å½¢ç·¨é›†ãƒ¢ãƒ¼ãƒ‰ãŒå‚™ã‚ã£ã¦ã„ã‚‹
+;; CUA : Common User Access ã¯é‚ªé­”ãªã®ã§åˆ‡ã‚‹
+(cua-mode t) ; cua-modeã‚’ã‚ªãƒ³
+(setq cua-enable-cua-keys nil) ; CUAã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰ã‚’ç„¡åŠ¹ã«ã™ã‚‹
 
-;; company‚Ìİ’è
-;; •âŠ®
+;; companyã®è¨­å®š
+;; è£œå®Œ
 (require 'company-config)
 
 ;; undohist
-;; ƒtƒ@ƒCƒ‹ƒNƒ[ƒYŒã‚à—š—ğ‚ğ‚³‚©‚Ì‚Ú‚ê‚é
+;; ãƒ•ã‚¡ã‚¤ãƒ«ã‚¯ãƒ­ãƒ¼ã‚ºå¾Œã‚‚å±¥æ­´ã‚’ã•ã‹ã®ã¼ã‚Œã‚‹
 (when (require 'undohist nil t)
   (undohist-initialize))
 
 ;; undo-tree
-;; —š—ğ÷Œ`}
+;; å±¥æ­´æ¨¹å½¢å›³
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode))
 
 ;; point-undo
-;; ƒGƒfƒBƒ^“à–Àq–h~
+;; ã‚¨ãƒ‡ã‚£ã‚¿å†…è¿·å­é˜²æ­¢
 (when (require 'point-undo nil t)
   (define-key global-map (kbd "M-[") 'point-undo)
   (define-key global-map (kbd "M-]") 'point-redo))
@@ -118,31 +112,31 @@
 ;; helm
 (require 'my-helm-config)
 
-;; wgrep‚Ìİ’è
+;; wgrepã®è¨­å®š
 (require 'wgrep nil t)
 
-;; ediff‚Ìİ’è
-;; ediffƒRƒ“ƒgƒ[ƒ‹ƒpƒlƒ‹‚ğ•ÊƒtƒŒ[ƒ€‚É‚µ‚È‚¢
+;; ediffã®è¨­å®š
+;; ediffã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ‘ãƒãƒ«ã‚’åˆ¥ãƒ•ãƒ¬ãƒ¼ãƒ ã«ã—ãªã„
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-;; color-moccur‚Ìİ’è
+;; color-moccurã®è¨­å®š
 (when (require 'color-moccur nil t)
-  ;; M-o‚Éoccur-my-moccur‚ğŠ„‚è“–‚Ä
+  ;; M-oã«occur-my-moccurã‚’å‰²ã‚Šå½“ã¦
   (define-key global-map (kbd "M-o") 'occur-by-moccur)
-  ;; ƒXƒy[ƒX‹æØ‚è‚ÅANDŒŸõ
+  ;; ã‚¹ãƒšãƒ¼ã‚¹åŒºåˆ‡ã‚Šã§ANDæ¤œç´¢
   (setq moccur-split-word t)
-  ;; ƒfƒBƒŒƒNƒgƒŠŒŸõ‚Ì‚Æ‚«œŠO‚·‚éƒtƒ@ƒCƒ‹)
+  ;; ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæ¤œç´¢ã®ã¨ãé™¤å¤–ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«)
   (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
   (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
-  ;; Migemo‚ğ—˜—p‚Å‚«‚éŠÂ‹«‚Å‚ ‚ê‚Îg—p
+  ;; Migemoã‚’åˆ©ç”¨ã§ãã‚‹ç’°å¢ƒã§ã‚ã‚Œã°ä½¿ç”¨
   (when (and (executable-find "cmigemo")
 			 (require 'migemo nil t))
 	(setq moccur-use-migemo)))
 
-;; moccur-edit‚Ìİ’è
+;; moccur-editã®è¨­å®š
 (require 'moccur-edit nil t)
 
-;; ace-jump‚Ìİ’è
+;; ace-jumpã®è¨­å®š
 (require 'ace-jump-config)
 
 ;; print
@@ -153,7 +147,7 @@
   (interactive)
   (my-printout-region (point-min) (point-max)))
 
-;; ƒ^ƒu/ƒ^ƒu‰ğœ
+;; ã‚¿ãƒ–/ã‚¿ãƒ–è§£é™¤
 (defun untabify-buffer ()
   (interactive)
   (untabify (buffer-end -1) (buffer-end 1)))
@@ -165,7 +159,7 @@
 
 
 ;; ========================================
-;;  ŠeíŒ¾Œê‚Ìİ’è
+;;  å„ç¨®è¨€èªã®è¨­å®š
 ;; ========================================
 
 ;; flymake
@@ -189,14 +183,14 @@
 ;; haskell
 (require 'haskell-config)
 
-;; Gi’»•ñ—p
+;; Gé€²æ—å ±å‘Šç”¨
 (require 'shinchoku-config)
 
 
 
 ;;;========================================
-;;; ƒL[ƒoƒCƒ“ƒh
-;;; ’Ç‰Á‹@”\‚Æ‚©‚Ì‚à‚ ‚é‚Ì‚Å‚³‚¢‚²
+;;; ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰
+;;; è¿½åŠ æ©Ÿèƒ½ã¨ã‹ã®ã‚‚ã‚ã‚‹ã®ã§ã•ã„ã”
 ;;; conf/key-bind-config.el
 ;;;========================================
 (require 'key-bind-config)
