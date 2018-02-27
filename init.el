@@ -174,6 +174,9 @@
 ;; HTML
 (require 'html-config)
 
+;; css
+(require 'css-config)
+
 ;; python
 (require 'python-config)
 

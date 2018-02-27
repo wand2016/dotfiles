@@ -40,20 +40,6 @@
 (define-key global-map (kbd "M-c") 'capitalize-dwim)
 (define-key global-map (kbd "M-u") 'upcase-dwim)
 (define-key global-map (kbd "M-l") 'downcase-dwim)
-;; 直前の単語をキャピタルとかにする自作関数
-(defun capitalize-last-word ()
-  (interactive)
-  (capitalize-word -1))
-(defun upcase-last-word ()
-  (interactive)
-  (upcase-word -1))
-(defun downcase-last-word ()
-  (interactive)
-  (downcase-word -1))
-;; キーバインド
-(define-key global-map (kbd "s-c") 'capitalize-last-word)
-(define-key global-map (kbd "s-u") 'upcase-last-word)
-(define-key global-map (kbd "s-l") 'downcase-last-word)
 
 ;; diredでもC-tでタブ切り替え
 (define-key dired-mode-map (kbd "C-t") 'other-window)

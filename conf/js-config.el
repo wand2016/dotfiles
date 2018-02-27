@@ -97,4 +97,14 @@
 ;(add-to-list 'company-backends 'company-tern)
 
 
+
+;; よく使うやつ
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (define-key js2-mode-map (kbd "s-f") "function () {}")
+            (define-key js2-mode-map (kbd "s-l") "console.log();")
+            (define-key js2-mode-map (kbd "s-q") "''")
+            (define-key js2-mode-map (kbd "s-Q") "\"\"")))
+
+
 (provide 'js-config)
