@@ -64,8 +64,8 @@
     (set-fontset-font (frame-parameter nil 'font)
                       'katakana-jisx0201
                       '("ＭＳ ゴシック" . "unicode-bmp")
-                      )
-    (t 0))))    
+                      ))
+    (t 0)))    
 
 
 ;; ツールバーを非表示
