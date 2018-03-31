@@ -1,0 +1,26 @@
+HTTP/1.1 200 OK
+Content-Type: image/svg+xml;charset=utf-8
+Cache-Control: max-age=86400
+Content-Security-Policy: default-src 'none'; img-src data:; style-src 'unsafe-inline'
+Last-Modified: Fri, 30 Mar 2018 09:33:39 GMT
+Server: github-camo (65c9ebe0)
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-Xss-Protection: 1; mode=block
+X-GitHub-Request-Id: 9124:1D7E:51528DA:56F754A:5ABE248D
+Content-Length: 953
+Accept-Ranges: bytes
+Date: Sat, 31 Mar 2018 00:33:14 GMT
+Via: 1.1 varnish
+Age: 45754
+Connection: keep-alive
+X-Served-By: cache-nrt6126-NRT
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1522456395.529580,VS0,VE1
+Vary: Accept-Encoding
+X-Fastly-Request-ID: 3be17c6237f01bb94cf234cc3f85c2cbafe3e9eb
+Timing-Allow-Origin: https://github.com
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92" height="20"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="92" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path fill="#555" d="M0 0h47v20H0z"/><path fill="#007ec6" d="M47 0h45v20H47z"/><path fill="url(#b)" d="M0 0h92v20H0z"/></g><g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110"><text x="245" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="370">license</text><text x="245" y="140" transform="scale(.1)" textLength="370">license</text><text x="685" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="350">GPLv3</text><text x="685" y="140" transform="scale(.1)" textLength="350">GPLv3</text></g> </svg>

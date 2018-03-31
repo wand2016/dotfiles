@@ -2,6 +2,12 @@
 ;;; frameの設定
 ;;;========================================
 
+;; かっこいいテーマ
+;; DOSだとなんか動かない
+(when (and (eq system-type 'windows-nt) (display-graphic-p))
+  (load-theme #'abyss t))  
+
+
 ;; ファイルサイズの表示
 (size-indication-mode t)
 
@@ -65,13 +71,12 @@
                       'katakana-jisx0201
                       '("ＭＳ ゴシック" . "unicode-bmp")
                       ))
-    (t 0)))    
+    (t 0)))    ;; ターミナル用
 
 
 ;; ツールバーを非表示
 (tool-bar-mode -1)
 ;; メニューバーを非表示
 (menu-bar-mode -1)
-
 
 (provide 'frame-config)
