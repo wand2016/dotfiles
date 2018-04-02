@@ -2,7 +2,11 @@
 ;; Automatically generated file!!! DO NOT EDIT!!!
 
 (setq url-cookie-storage
- 'nil)
+ '((".google.co.jp"
+  [url-cookie "HttpOnly" nil "28-Sep-2018 01:12:18.00 GMT" "/" ".google.co.jp" nil]
+  [url-cookie "NID" "126=KBNnMwEKFQhARHDuAxWQh8W3yS3tdTG2a7xIFoCY3KRbFsQPWCu5d67uzJl4E5oam7v5LsuHQXf99cjtO4kP6XDSRnfV4-0rd_iFzqEi--6CCMo2PcerNVJdivI13ZMO" "28-Sep-2018 01:12:18.00 GMT" "/" ".google.co.jp" nil]
+  [url-cookie "1P_JAR" "2018-03-29-01" "28-Apr-2018 01:12:18.00 GMT" "/" ".google.co.jp" nil]))
+)
 (setq url-cookie-secure-storage
  'nil)
 
