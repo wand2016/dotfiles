@@ -1,8 +1,12 @@
-auto-save-list/*
-backups/*
-bookmarks/*
-.python-environments/*
+auto-save-list/
+backups/
+bookmarks/
+.python-environments/
 *.tern-port
-undohist/*
+undohist/
 company-statistics-cache.el
 recentf
+url/
+network-security.data
+srecode-map.el
+kkcrc

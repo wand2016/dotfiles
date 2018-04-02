@@ -2,6 +2,12 @@
 ;;; frameの設定
 ;;;========================================
 
+;; かっこいいテーマ
+;; DOSだとなんか動かない
+(when (and (eq system-type 'windows-nt) (display-graphic-p))
+  (load-theme #'abyss t))  
+
+
 ;; ファイルサイズの表示
 (size-indication-mode t)
 
@@ -55,21 +61,22 @@
 ;; 等幅設定0
 ;;** Consolas + MSゴシック
 (when (eq system-type 'windows-nt)
-  (set-default-font "Consolas 10")
-  (set-fontset-font (frame-parameter nil 'font)
-                    'japanese-jisx0208
-                    '("ＭＳ ゴシック" . "unicode-bmp")
-                    )
-  (set-fontset-font (frame-parameter nil 'font)
-                    'katakana-jisx0201
-                    '("ＭＳ ゴシック" . "unicode-bmp")
-                    ))
+  (cond ((display-graphic-p)
+    (set-default-font "Consolas 10")
+    (set-fontset-font (frame-parameter nil 'font)
+                      'japanese-jisx0208
+                      '("ＭＳ ゴシック" . "unicode-bmp")
+                      )
+    (set-fontset-font (frame-parameter nil 'font)
+                      'katakana-jisx0201
+                      '("ＭＳ ゴシック" . "unicode-bmp")
+                      ))
+    (t 0)))    ;; ターミナル用
 
 
 ;; ツールバーを非表示
 (tool-bar-mode -1)
 ;; メニューバーを非表示
 (menu-bar-mode -1)
-
 
 (provide 'frame-config)
