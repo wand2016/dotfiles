@@ -189,9 +189,6 @@
 ;; G進捗報告用
 (require 'shinchoku-config)
 
-;; 週報
-(require 'weekly-report-config)
-
 
 ;; ========================================
 ;; テキストブラウザの設定
