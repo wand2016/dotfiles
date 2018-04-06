@@ -189,9 +189,6 @@
 ;; G進捗報告用
 (require 'shinchoku-config)
 
-;; 週報
-(require 'weekly-report-config)
-
 
 ;; ========================================
 ;; テキストブラウザの設定
@@ -218,7 +215,7 @@
     ("551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" default)))
  '(package-selected-packages
    (quote
-    (abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company))))
+    (markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -226,3 +223,6 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'scroll-left 'disabled nil)
+
+
+(setq markdown-command "c:/Tools/pandoc/pandoc -s --self-contained -t html5 -c C:/Tools/pandoc/github.css")
