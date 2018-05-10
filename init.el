@@ -226,3 +226,9 @@
 
 
 (setq markdown-command "c:/Tools/pandoc/pandoc -s --self-contained -t html5 -c C:/Tools/pandoc/github.css")
+
+(add-hook 'php-mode-hook
+          (lambda ()
+            (setq tab-width 4)
+            (setq c-basic-offset 4)
+            (setq php-mode-force-pear t)))
