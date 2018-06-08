@@ -101,10 +101,20 @@
 ;; よく使うやつ
 (add-hook 'js2-mode-hook
           (lambda ()
+            ;; よく使うものをキーバインド登録
             (define-key js2-mode-map (kbd "s-f") "function () {}")
             (define-key js2-mode-map (kbd "s-l") "console.log();")
             (define-key js2-mode-map (kbd "s-q") "''")
-            (define-key js2-mode-map (kbd "s-Q") "\"\"")))
+            (define-key js2-mode-map (kbd "s-Q") "\"\"")
 
+            ;; .term-port を作らない            
+            (when (locate-library "tern")
+              (setq tern-command '("tern" "--no-port-file"))
+              (tern-mode t)
+              (eval-after-load 'tern
+                '(progn
+                   (require 'tern-auto-complete)
+                   (tern-ac-setup))))
+              ))
 
 (provide 'js-config)
