@@ -13,6 +13,7 @@
 ;;;========================================
 ;;; path
 ;;;========================================
+(setq recentf-exclude '("^/[^/:]+:"))
 
 ;; load-pathを追加する関数を定義
 (defun add-to-load-path (&rest paths)
@@ -225,7 +226,7 @@
 (put 'scroll-left 'disabled nil)
 
 
-(setq markdown-command "c:/Tools/pandoc/pandoc -s --self-contained -t html5 -c C:/Tools/pandoc/github.css")
+(setq markdown-command "pandoc")
 
 (add-hook 'php-mode-hook
           (lambda ()
