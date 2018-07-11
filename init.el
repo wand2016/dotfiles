@@ -225,8 +225,7 @@
  )
 (put 'scroll-left 'disabled nil)
 
-
-(setq markdown-command "pandoc")
+(setq markdown-command "C:\\Tools\\pandoc\\pandoc_github.bat")
 
 (add-hook 'php-mode-hook
           (lambda ()
