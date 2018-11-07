@@ -2,13 +2,17 @@
 ;;  HTMLの設定
 ;; ========================================
 
-;; HTML編集のデフォルトモードをnxml-modeにする
-(add-to-list 'auto-mode-alist '("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . nxml-mode))
+;; html
+(add-to-list 'auto-mode-alist '("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . web-mode))
 
-;; </を入力すると自動的にタグを閉じる
-(setq nxml-slash-auto-complete-flag t)
+;; blade template
+(add-to-list 'auto-mode-alist '("\\.blade\\.php\\'" . web-mode))
 
-;; M-TAB, C-M-iでタグを補完する
-(setq nxml-bind-meta-tab-to-complete-flag t)
+
+;; web-modeのインデント設定
+(defun web-mode-indent-hook ()
+  (setq web-mode-markup-indent-offset 2))
+
+(add-hook 'web-mode-hook 'web-mode-indent-hook)
 
 (provide 'html-config)

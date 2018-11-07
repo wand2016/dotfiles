@@ -1,5 +1,7 @@
-;; 拡張子jsのファイルを開いたときjs2-modeに
-(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+;; 拡張子phpのファイルを開いたときにphp-modeに。
+;; TODO
+;; blade.phpはbladeテンプレートなので除く
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
 ;; インデントの設定
 (defun php-indent-hook ()
