@@ -115,6 +115,15 @@
                 '(progn
                    (require 'tern-auto-complete)
                    (tern-ac-setup))))
-              ))
+            ))
+
+
+;; js2-modeでjsdocを使う
+;; C-ciにバインド
+(add-hook 'js2-mode-hook
+          '(lambda ()
+             (local-set-key "\C-ci" 'js-doc-insert-function-doc)
+             (local-set-key "@" 'js-doc-insert-tag)
+             ))
 
 (provide 'js-config)
