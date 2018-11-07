@@ -178,6 +178,9 @@
 ;; css
 (require 'css-config)
 
+;; php
+(require 'php-config)
+
 ;; python
 (require 'python-config)
 
@@ -226,9 +229,3 @@
 (put 'scroll-left 'disabled nil)
 
 (setq markdown-command "C:\\Tools\\pandoc\\pandoc_github.bat")
-
-(add-hook 'php-mode-hook
-          (lambda ()
-            (setq tab-width 4)
-            (setq c-basic-offset 4)
-            (setq php-mode-force-pear t)))

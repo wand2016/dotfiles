@@ -8,29 +8,16 @@
 ;; (setq comment-style 'multi-line)
 
 
-;; インデントの不具合の解消
+;; インデントの設定
 (defun js-indent-hook ()
   ;; インデント幅を4にする
   (setq js-indent-level 4
 		js-expr-indent-offset 4
-		indent-tabs-mode nil)
-  ;; switch文のcaseラベルをインデントする関数を定義する
-  (defun my-js-indent-line ()
-    (interactive)
-    (let* ((parse-status (save-excursion (syntax-ppss (point-at-bol))))
-		   (offset (- (current-column) (current-indentation)))
-		   (indentation (js--proper-indentation parse-status)))
-      (back-to-indentation)
-      (if (looking-at "case\\s-")
-		  (indent-line-to (+ indentation 2))
-		(js-indent-line))
-      (when (> offset 0) (forward-char offset))))
-  ;; caseラベルのインデント処理をセットする
-  (set (make-local-variable 'indent-line-function) 'my-js-indent-line)
-  ;; ここまでcaseラベルを調整する設定
-  )
+		indent-tabs-mode nil
+        ;; switch-case
+        js2-basic-offset 4
+        js-switch-indent-offset 4))
 
-;; js2-modeの起動時にhookを追加
 (add-hook 'js2-mode-hook 'js-indent-hook)
 
 
@@ -53,6 +40,7 @@
 			   nil 1 nil))
 
 ;; スタイルチェック
+;; 重いのでoff
 ;(add-hook 'js2-mode-hook 'flymake-mode)
 
 
@@ -114,16 +102,14 @@
               (eval-after-load 'tern
                 '(progn
                    (require 'tern-auto-complete)
-                   (tern-ac-setup))))
-            ))
+                   (tern-ac-setup))))))
 
 
 ;; js2-modeでjsdocを使う
 ;; C-ciにバインド
 (add-hook 'js2-mode-hook
-          '(lambda ()
-             (local-set-key "\C-ci" 'js-doc-insert-function-doc)
-             (local-set-key "@" 'js-doc-insert-tag)
-             ))
+          (lambda ()
+            (local-set-key "\C-ci" 'js-doc-insert-function-doc)
+            (local-set-key "@" 'js-doc-insert-tag)))
 
 (provide 'js-config)
