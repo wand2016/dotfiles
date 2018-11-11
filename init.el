@@ -190,6 +190,9 @@
 ;; haskell
 (require 'haskell-config)
 
+;; Prolog
+(require 'prolog-config)
+
 ;; G進捗報告用
 (require 'shinchoku-config)
 
