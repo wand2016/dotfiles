@@ -19,7 +19,7 @@
 
   ;; css設定
   (setq markdown-css-paths (list css-path))
-  (setq markdown-preview-stylesheets (list css-path)))
+  (setq markdown-preview-stylesheets (list "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css")))
 
 
 (provide 'markdown-config)
