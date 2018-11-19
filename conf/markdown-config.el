@@ -15,8 +15,10 @@
     (setq css-path (concat "file:///" css-path)))
 
   ;; markdownレンダラ
-  (setq markdown-command "markdown.pl")
-
+  (if (eq system-type 'windows-nt)
+    (setq markdown-command "markdown.pl")
+    (setq markdown-command "markdown"))
+  
   ;; css設定
   (setq markdown-css-paths (list css-path))
   (setq markdown-preview-stylesheets (list "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css")))
