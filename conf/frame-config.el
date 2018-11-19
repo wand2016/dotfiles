@@ -3,7 +3,6 @@
 ;;;========================================
 
 ;; かっこいいテーマ
-;; DOSだとなんか動かない
 (when (and (eq system-type 'windows-nt) (display-graphic-p))
   (load-theme #'abyss t))  
 

@@ -1,3 +1,25 @@
-(setq markdown-preview-stylesheets (list "github.css"))
+;; ========================================
+;; markdown-preview
+;; markdown-preview-mode
+;; の設定
+;; ========================================
+
+
+;; cssのフルパスを局所変数に定義
+(let (css-path)
+  (setq css-path (file-truename "github.css"))
+  
+  ;; winのときはfile:///をつける
+  ;; root
+  (when (eq system-type 'windows-nt)
+    (setq css-path (concat "file:///" css-path)))
+
+  ;; markdownレンダラ
+  (setq markdown-command "markdown.pl")
+
+  ;; css設定
+  (setq markdown-css-paths (list css-path))
+  (setq markdown-preview-stylesheets (list css-path)))
+
 
 (provide 'markdown-config)
