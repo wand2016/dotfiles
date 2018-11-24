@@ -205,6 +205,10 @@
 ;; ========================================
 (require 'eww-config)
 
+;; ========================================
+;; Markdownのリアルタイムプレビューの設定
+;; ========================================
+(require 'markdown-config)
 
 ;; grep
 (setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\""
@@ -231,7 +235,7 @@
     ("551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" default)))
  '(package-selected-packages
    (quote
-    (skewer-mode web-mode js-doc php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
+    (skewer-mode markdown-preview-mode web-mode js-doc php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
  '(prolog-program-name
    (quote
     (((getenv "EPROLOG")
@@ -251,5 +255,3 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'scroll-left 'disabled nil)
-
-(setq markdown-command "C:\\Tools\\pandoc\\pandoc_github.bat")
