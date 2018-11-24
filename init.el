@@ -193,6 +193,9 @@
 ;; Prolog
 (require 'prolog-config)
 
+;; skewer
+(require 'skewer-config)
+
 ;; G進捗報告用
 (require 'shinchoku-config)
 
@@ -201,6 +204,12 @@
 ;; テキストブラウザの設定
 ;; ========================================
 (require 'eww-config)
+
+
+;; grep
+(setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\""
+      grep-program "\"C:\\Program Files\\Git\\usr\\bin\\grep.exe\""
+      null-device "/dev/null")
 
 
 
@@ -222,7 +231,19 @@
     ("551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" default)))
  '(package-selected-packages
    (quote
-    (web-mode js-doc php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company))))
+    (skewer-mode web-mode js-doc php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
+ '(prolog-program-name
+   (quote
+    (((getenv "EPROLOG")
+      (eval
+       (getenv "EPROLOG")))
+     (eclipse "eclipse")
+     (mercury nil)
+     (sicstus "sicstus")
+     (swi "swipl")
+     (gnu "gprolog")
+     (t "prolog"))))
+ '(prolog-system (quote swi)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
