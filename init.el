@@ -156,7 +156,9 @@
   (interactive)
   (tabify (buffer-end -1) (buffer-end 1)))
 
-
+;; yasnippetを有効に
+(when (require 'yasnippet nil t)
+  (yas-global-mode t))
 
 
 ;; ========================================
