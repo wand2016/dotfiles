@@ -56,7 +56,7 @@
 
 (defun js2-company-tern-hook ()
   (when (locate-library "tern")
-    ;; .term-port を作らない
+    ;; .tern-port を作らない
     (setq tern-command '("tern" "--no-port-file"))
     (tern-mode t)))
 
