@@ -9,7 +9,7 @@
 ;; (setq w32-scroll-lock-modifier 'super) ; ScrollLck
 (setq w32-apps-modifier 'super) ; Menu/App key
 (setq w32-scroll-lock-modifier 'hyper) ; ScrollLck
-
+(setq mac-right-command-modifier 'hyper)
 
 
 ;; C-mにnewline-and-indentを割り当てる
