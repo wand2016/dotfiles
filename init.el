@@ -43,14 +43,18 @@
 
 ;; package.el
 (when (require 'package nil t)
-  ;; パッケージリポジトリにMarmaladeと開発者運営のELPAを追加
-  (add-to-list 'package-archives
-			   '("marmalade" . "http://marmalade-repo.org/packages/"))
-  (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
-  ;; MELPAも追加
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  ;; インストールしたパッケージにロードパスを通して読み込む
-  (package-initialize))
+  ;; オフラインの場合やサーバーが死んでいる場合等、エラーが出る
+  ;; 握りつぶす
+  (ignore-errors
+    (progn
+      ;; パッケージリポジトリにMarmaladeと開発者運営のELPAを追加
+      (add-to-list 'package-archives
+                   '("marmalade" . "http://marmalade-repo.org/packages/"))
+      (add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/"))
+      ;; MELPAも追加
+      (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+      ;; インストールしたパッケージにロードパスを通して読み込む
+      (package-initialize))))
 
 ;; auto-install
 ;; http://www.emacswikiがエラーのもとだったため
@@ -66,6 +70,10 @@
 ;;;========================================
 (setq-default indent-tabs-mode nil)
 
+;;;==========================================
+;;; サーバーの起動
+;;;==========================================
+(require 'server-config)
 
 ;;;==========================================
 ;;; 文字コード系の設定
@@ -237,7 +245,7 @@
     ("551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" default)))
  '(package-selected-packages
    (quote
-    (yasnippet-snippets helm-c-yasnippet yasnippet skewer-mode markdown-preview-mode web-mode js-doc php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
+    (git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet skewer-mode markdown-preview-mode web-mode js-doc php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
  '(prolog-program-name
    (quote
     (((getenv "EPROLOG")
