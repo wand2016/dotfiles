@@ -18,8 +18,21 @@
   (setq comment-start "//")
   (setq comment-end ""))
 
+;; companyによる補完
+(defun php-company-hook ()
+  (require 'company-php)
+  (company-mode t)
+  (ac-php-core-eldoc-setup) ;; enable eldoc
+  (make-local-variable 'company-backends)
+  (add-to-list 'company-backends 'company-ac-php-backend)
+  ; 定義にジャンプ
+  (define-key php-mode-map  (kbd "M-.") 'ac-php-find-symbol-at-point)
+  ; ジャンプ先から戻る
+  (define-key php-mode-map  (kbd "M-,") 'ac-php-location-stack-back))
+
 
 (add-hook 'php-mode-hook 'php-indent-hook)
 (add-hook 'php-mode-hook 'php-comment-hook)
+(add-hook 'php-mode-hook 'php-company-hook)
 
 (provide 'php-config)
