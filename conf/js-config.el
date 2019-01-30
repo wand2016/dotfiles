@@ -79,4 +79,10 @@
 (add-hook 'js2-mode-hook 'js2-jsdoc-hook)
 
 
+;; ========================================
+;; node_modulesのパスを通す
+;; ========================================
+(add-hook 'js-mode-hook 'add-node-modules-path)
+
+
 (provide 'js-config)
