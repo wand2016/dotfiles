@@ -245,7 +245,7 @@
     ("551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" default)))
  '(package-selected-packages
    (quote
-    (company-php ac-php dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet skewer-mode markdown-preview-mode web-mode js-doc php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
+    (add-node-modules-path eslint-fix prettier-js go-mode company-php ac-php dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet skewer-mode markdown-preview-mode web-mode js-doc php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
  '(prolog-program-name
    (quote
     (((getenv "EPROLOG")

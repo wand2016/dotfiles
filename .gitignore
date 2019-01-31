@@ -2,7 +2,7 @@ auto-save-list/
 backups/
 bookmarks/
 .python-environments/
-*.tern-port
+.tern-port
 undohist/
 company-statistics-cache.el
 recentf
@@ -13,3 +13,4 @@ kkcrc
 eshell/
 eshell/history
 server
+elpa/archives/melpa/archive-contents
