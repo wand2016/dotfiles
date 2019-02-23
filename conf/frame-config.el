@@ -4,7 +4,19 @@
 
 ;; かっこいいテーマ
 (when (and (eq system-type 'windows-nt) (display-graphic-p))
-  (load-theme #'abyss t))  
+  (load-theme #'abyss t))
+
+
+(when (eq system-type 'gnu/linux)
+  (require 'mozc)
+  (setq default-input-method "japanese-mozc")
+
+  (setq mozc-candidate-style 'overlay)
+  (global-set-key (kbd "C-o") 'toggle-input-method)
+  (prefer-coding-system 'utf-8))
+
+
+
 
 
 ;; ファイルサイズの表示
