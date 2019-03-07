@@ -37,7 +37,7 @@ Describe the JsDoc tag
 
 ;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/js-doc-20160715.434/js-doc-autoloads.el"
 ;;;;;;  "../../../../.emacs.d/elpa/js-doc-20160715.434/js-doc.el")
-;;;;;;  (23522 40955 0 0))
+;;;;;;  (23671 16076 0 0))
 
 ;;;***
 
