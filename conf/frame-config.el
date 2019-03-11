@@ -2,11 +2,24 @@
 ;;; frameの設定
 ;;;========================================
 
+
+;; カッコがきれいなやつ
+(global-rainbow-delimiters-mode)
+(require 'cl-lib)
+(require 'color)
+(cl-loop
+ for index from 1 to rainbow-delimiters-max-face-count
+ do
+ (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
+   (cl-callf color-saturate-name (face-foreground face) 30))) 
+
+
 ;; かっこいいテーマ
 (when (and (eq system-type 'windows-nt) (display-graphic-p))
-  (load-theme #'abyss t))
+  (load-theme #'darcula t))
 
 
+;; 日本語入力 (linux)
 (when (eq system-type 'gnu/linux)
   (require 'mozc)
   (setq default-input-method "japanese-mozc")
