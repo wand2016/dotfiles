@@ -15,8 +15,7 @@
 
 
 ;; かっこいいテーマ
-(when (and (eq system-type 'windows-nt) (display-graphic-p))
-  (load-theme #'darcula t))
+(load-theme 'darcula t)
 
 
 ;; 日本語入力 (linux)
