@@ -11,7 +11,7 @@
 	     (interactive)
 	     (funcall (if (eq ',mode 'word)
 					  #'ace-jump-word-mode
-					  #'ace-jump-char-mode)
+                    #'ace-jump-char-mode)
 				  ,c))))
 
   ;; マッピング

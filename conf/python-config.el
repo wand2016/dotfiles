@@ -5,8 +5,7 @@
 ;; 文法・スタイルチェック
 (when (require 'flymake-python-pyflakes nil t) 
   (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-  (setq flymake-python-pyflakes-executable "flake8")
-  )
+  (setq flymake-python-pyflakes-executable "flake8"))
 
 ;; jediによる補完
 (when (require 'jedi-core nil t)

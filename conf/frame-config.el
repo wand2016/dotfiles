@@ -49,9 +49,9 @@
       (format "%d lines, %d chars "
 			  (count-lines (region-beginning) (region-end))
 			  (- (region-end) (region-beginning)))
-    ;; これだとエコーエリアがチラつく
-    ;; (count-lines-region (region-beginning) (region-end))
-    ""))
+      ;; これだとエコーエリアがチラつく
+      ;; (count-lines-region (region-beginning) (region-end))
+      ""))
 (add-to-list 'default-mode-line-format
 			 '(:eval (count-lines-and-chars)))
 
@@ -86,16 +86,16 @@
 ;;** Consolas + MSゴシック
 (when (eq system-type 'windows-nt)
   (cond ((display-graphic-p)
-    (set-default-font "Consolas 10")
-    (set-fontset-font (frame-parameter nil 'font)
-                      'japanese-jisx0208
-                      '("ＭＳ ゴシック" . "unicode-bmp")
-                      )
-    (set-fontset-font (frame-parameter nil 'font)
-                      'katakana-jisx0201
-                      '("ＭＳ ゴシック" . "unicode-bmp")
-                      ))
-    (t 0)))    ;; ターミナル用
+         (set-default-font "Consolas 10")
+         (set-fontset-font (frame-parameter nil 'font)
+                           'japanese-jisx0208
+                           '("ＭＳ ゴシック" . "unicode-bmp")
+                           )
+         (set-fontset-font (frame-parameter nil 'font)
+                           'katakana-jisx0201
+                           '("ＭＳ ゴシック" . "unicode-bmp")
+                           ))
+        (t 0)))    ;; ターミナル用
 
 
 ;; ツールバーを非表示

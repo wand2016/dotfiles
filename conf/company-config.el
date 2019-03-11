@@ -14,7 +14,6 @@
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 (define-key company-active-map (kbd "C-h") nil)
 
-
 ;; ========================================
 ;; tabの挙動をいい感じに
 ;; - 候補が1つ  : それを選択
@@ -27,11 +26,10 @@
     (setq candidate (substring-no-properties candidate))
     (if (eq (company-call-backend 'ignore-case) 'keep-prefix)
         (insert (company-strip-prefix candidate))
-      (if (equal company-prefix candidate)
-          (company-select-next)
-		(delete-region (- (point) (length company-prefix)) (point))
-        (insert candidate))
-      )))
+        (if (equal company-prefix candidate)
+            (company-select-next)
+            (delete-region (- (point) (length company-prefix)) (point))
+            (insert candidate)))))
 
 (defun company-complete-common2 ()
   (interactive)
@@ -39,7 +37,7 @@
     (if (and (not (cdr company-candidates))
              (equal company-common (car company-candidates)))
         (company-complete-selection)
-      (company--insert-candidate2 company-common))))
+        (company--insert-candidate2 company-common))))
 
 (define-key company-active-map [tab] 'company-complete-common2)
 (define-key company-active-map [backtab] 'company-select-previous) ; おまけ
