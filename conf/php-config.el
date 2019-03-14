@@ -28,10 +28,9 @@
   (defun php-flycheck-hook ()
     (require 'flycheck nil t)
     (require 'flycheck-phpstan nil t)
-    (setq-default flycheck-phpcs-standard "PSR2")
-    (setq-default phpstan-executable 'docker)
+    (setq flycheck-phpcs-standard "PSR2")
+    (setq phpstan-executable 'docker)
     (flycheck-mode t))
-    
 
   (add-hook 'php-mode-hook 'php-comment-hook)
   (add-hook 'php-mode-hook 'php-company-hook)
