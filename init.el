@@ -244,7 +244,7 @@
     ("e083a478848444bf0c0caa8c875f8645f5b8a17f4ba0991f95b83a26d6983296" "41c8c11f649ba2832347fe16fe85cf66dafe5213ff4d659182e25378f9cfc183" "551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" default)))
  '(package-selected-packages
    (quote
-    (org-pomodoro geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides docker mozc tern company-web vue-mode js-doc add-node-modules-path eslint-fix prettier-js go-mode company-php ac-php dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
+    (flycheck-phpstan org-pomodoro geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides docker mozc tern company-web vue-mode js-doc add-node-modules-path eslint-fix prettier-js go-mode company-php ac-php dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
  '(prolog-program-name
    (quote
     (((getenv "EPROLOG")

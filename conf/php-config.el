@@ -24,9 +24,12 @@
     (define-key php-mode-map  (kbd "M-,") 'ac-php-location-stack-back))
 
   ;; flycheck
+  ;; phpcs and phpstan
   (defun php-flycheck-hook ()
     (require 'flycheck nil t)
-    (setq flycheck-phpcs-standard "PSR2")
+    (require 'flycheck-phpstan nil t)
+    (setq-default flycheck-phpcs-standard "PSR2")
+    (setq-default phpstan-executable 'docker)
     (flycheck-mode t))
     
 
