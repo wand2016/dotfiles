@@ -1,3 +1,4 @@
+article,
 body {
     font-family: Helvetica, arial, sans-serif;
     font-size: 14px;
@@ -8,10 +9,12 @@ body {
     padding: 30px;
 }
 
-
+article > *:first-child,
 body > *:first-child {
     margin-top: 0 !important;
 }
+
+article > *:last-child,
 body > *:last-child {
     margin-bottom: 0 !important;
 }
@@ -111,18 +114,25 @@ hr {
     padding: 0;
 }
 
+article > h2:first-child,
 body > h2:first-child {
     margin-top: 0;
     padding-top: 0;
 }
+
+article > h1:first-child,
 body > h1:first-child {
     margin-top: 0;
     padding-top: 0;
 }
+
+article > h1:first-child + h2,
 body > h1:first-child + h2 {
     margin-top: 0;
     padding-top: 0;
 }
+
+article > h3:first-child, article > h4:first-child, article > h5:first-child, article > h6:first-child,
 body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
     margin-top: 0;
     padding-top: 0;
