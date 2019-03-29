@@ -17,10 +17,10 @@
 
 ;; vue-modeでflycheck有効にしたら、
 ;; 保存時にfixする
-(add-hook 'vue-mode-hook
-          (lambda ()
-            (add-hook 'flycheck-mode-hook
-                      (lambda()
-                        (add-hook 'after-save-hook #'eslint-fix)))))
+;; (add-hook 'vue-mode-hook
+;;           (lambda ()
+;;             (add-hook 'flycheck-mode-hook
+;;                       (lambda()
+;;                         (add-hook 'after-save-hook #'eslint-fix)))))
 
 (provide 'vue-config)
