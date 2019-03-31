@@ -66,8 +66,9 @@
 
 
 ;; 環境変数持ち込む
-(when (require 'exec-path-from-shell nil t)
-  (exec-path-from-shell-initialize))  
+(when (and (not (eq system-type 'windows-nt))
+           (require 'exec-path-from-shell nil t))
+  (exec-path-from-shell-initialize))
 
 
 ;;;========================================
