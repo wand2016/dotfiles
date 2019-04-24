@@ -44,8 +44,5 @@
 ;; diredでもC-tでタブ切り替え
 (define-key dired-mode-map (kbd "C-t") 'other-window)
 
-;; mkdirのキーバインド
-(define-key global-map (kbd "C-c d") 'mkdir)
-
 (provide 'key-bind-config)
 

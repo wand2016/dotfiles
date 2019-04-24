@@ -17,20 +17,6 @@
 ;; かっこいいテーマ
 (load-theme 'darcula t)
 
-
-;; 日本語入力 (linux)
-(when (eq system-type 'gnu/linux)
-  (require 'mozc)
-  (setq default-input-method "japanese-mozc")
-
-  (setq mozc-candidate-style 'overlay)
-  (global-set-key (kbd "C-o") 'toggle-input-method)
-  (prefer-coding-system 'utf-8))
-
-
-
-
-
 ;; ファイルサイズの表示
 (size-indication-mode t)
 

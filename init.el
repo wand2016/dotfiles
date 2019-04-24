@@ -93,95 +93,25 @@
 ;;;========================================
 (require 'frame-config)
 
-(add-hook 'lisp-mode-hook
-          (lambda ()
-            (set (make-local-variable 'lisp-indent-function)
-                 'common-lisp-indent-function)))
-
-;;;==========================================
-;;; Org-modeの設定
-;;;==========================================
-(require 'org-config)
+(require 'my-mozc-config)
+(require 'my-org-config)
 
 ;;;==========================================
 ;;; 機能追加
 ;;;========================================
 
-;; cua-modeの設定
-;; 素晴らしい矩形編集モードが備わっている
-;; CUA : Common User Access は邪魔なので切る
-(cua-mode t) ; cua-modeをオン
-(setq cua-enable-cua-keys nil) ; CUAキーバインドを無効にする
-
-;; companyの設定
-;; 補完
+;; 矩形編集の設定
+(require 'my-rect-edit-config)
+;; 補完設定
 (require 'company-config)
 
-;; undohist
-;; ファイルクローズ後も履歴をさかのぼれる
-(when (require 'undohist nil t)
-  (undohist-initialize))
-
-;; undo-tree
-;; 履歴樹形図
-(when (require 'undo-tree nil t)
-  (global-undo-tree-mode))
-
-;; point-undo
-;; エディタ内迷子防止
-(when (require 'point-undo nil t)
-  (define-key global-map (kbd "M-[") 'point-undo)
-  (define-key global-map (kbd "M-]") 'point-redo))
-
-;; helm
+(require 'my-undo-config)
 (require 'my-helm-config)
-
-;; wgrepの設定
-(require 'wgrep nil t)
-
-;; ediffの設定
-;; ediffコントロールパネルを別フレームにしない
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
-
-;; color-moccurの設定
-(when (require 'color-moccur nil t)
-  ;; M-oにoccur-my-moccurを割り当て
-  (define-key global-map (kbd "M-o") 'occur-by-moccur)
-  ;; スペース区切りでAND検索
-  (setq moccur-split-word t)
-  ;; ディレクトリ検索のとき除外するファイル)
-  (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
-  (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
-  ;; Migemoを利用できる環境であれば使用
-  (when (and (executable-find "cmigemo")
-			 (require 'migemo nil t))
-	(setq moccur-use-migemo)))
-
-;; moccur-editの設定
-(require 'moccur-edit nil t)
-
-;; ace-jumpの設定
+(require 'my-grep-config)
+(require 'my-diff-config)
+(require 'my-moccur-config)
 (require 'ace-jump-config)
-
-;; print
-(defun my-printout-region (begin end)
-  (interactive "r")
-  (shell-command-on-region begin end (format "PrFile32 /q /-")))
-(defun my-printout-buffer ()
-  (interactive)
-  (my-printout-region (point-min) (point-max)))
-
-;; タブ/タブ解除
-(defun untabify-buffer ()
-  (interactive)
-  (untabify (buffer-end -1) (buffer-end 1)))
-(defun tabify-buffer ()
-  (interactive)
-  (tabify (buffer-end -1) (buffer-end 1)))
-
-;; yasnippetを有効に
-(when (require 'yasnippet nil t)
-  (yas-global-mode t))
+(require 'my-yas-config)
 
 
 ;; ========================================
@@ -191,53 +121,24 @@
 ;; flymake
 (require 'my-flymake-config)
 
-;;  JavaScript
 (require 'js-config)
-
-;; json
 (require 'json-config)
-
-;; css
 (require 'css-config)
-
-;; php
 (require 'php-config)
-
-;; HTML, blade
 (require 'html-config)
-
-;; Vue SFC
 (require 'vue-config)
-
-;; python
 (require 'python-config)
-
-;; csharp
 (require 'csharp-config)
-
-;; haskell
 (require 'haskell-config)
-
-;; Prolog
 (require 'prolog-config)
-
-;; markdown
 (require 'markdown-config)
-
-;; G進捗報告用
-(require 'shinchoku-config)
+(require 'lisp-config)
 
 
 ;; ========================================
 ;; テキストブラウザの設定
 ;; ========================================
 (require 'eww-config)
-
-;; grep
-(when (eq system-type 'windows-nt)
-  (setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\""
-        grep-program "\"C:\\Program Files\\Git\\usr\\bin\\grep.exe\""
-        null-device "/dev/null"))
 
 
 ;;;========================================
@@ -258,7 +159,7 @@
     ("e083a478848444bf0c0caa8c875f8645f5b8a17f4ba0991f95b83a26d6983296" "41c8c11f649ba2832347fe16fe85cf66dafe5213ff4d659182e25378f9cfc183" "551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" default)))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell markdown-preview-mode flycheck-phpstan org-pomodoro geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides docker mozc tern company-web vue-mode js-doc add-node-modules-path eslint-fix prettier-js go-mode company-php ac-php dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
+    (mozc-popup mozc-im exec-path-from-shell markdown-preview-mode flycheck-phpstan org-pomodoro geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides docker mozc tern company-web vue-mode js-doc add-node-modules-path eslint-fix prettier-js go-mode company-php ac-php dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp csharp-mode flymake-cursor ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-tern company-jedi company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema flymake-python-pyflakes company)))
  '(prolog-program-name
    (quote
     (((getenv "EPROLOG")
