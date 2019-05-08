@@ -1,5 +1,6 @@
 .python-environments/
 .tern-port
+.lsp-session-v*
 ac-comphist.dat
 company-statistics-cache.el
 archive-contents
