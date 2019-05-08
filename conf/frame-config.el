@@ -17,29 +17,6 @@
 ;; かっこいいテーマ
 (load-theme 'darcula t)
 
-;; ファイルサイズの表示
-(size-indication-mode t)
-
-;; 時計を表示
-(setq display-time-day-and-date t)
-(setq display-time-24hr-format t)
-(display-time-mode t)
-
-;; バッテリー残量を表示
-(display-battery-mode t)
-
-;; リージョンの行数・文字数を表示
-(defun count-lines-and-chars ()
-  (if mark-active
-      (format "%d lines, %d chars "
-			  (count-lines (region-beginning) (region-end))
-			  (- (region-end) (region-beginning)))
-      ;; これだとエコーエリアがチラつく
-      ;; (count-lines-region (region-beginning) (region-end))
-      ""))
-(add-to-list 'default-mode-line-format
-			 '(:eval (count-lines-and-chars)))
-
 ;; タイトルバーにファイルのフルパスを表示
 (setq frame-title-format "%f")
 
