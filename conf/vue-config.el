@@ -130,7 +130,4 @@
                   :initialized-fn 'my-lsp-set-cfg
                   :server-id 'vls))
 
-
-;; (setq lsp-ui-flycheck-enable nil)
-
 (provide 'vue-config)
