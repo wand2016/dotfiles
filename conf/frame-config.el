@@ -44,6 +44,14 @@
 ;; タブの表示幅。初期値は8
 (setq-default tab-width 4)
 
+;; モードラインの設定
+;; - pomodoroタイマーを先頭に持ってくる
+(require 'org-pomodoro)
+(setq-default mode-line-format
+      (cons (car mode-line-format)
+            (cons 'org-pomodoro-mode-line
+                  (cdr mode-line-format))))
+
 ;; 等幅設定0
 ;;** Consolas + MSゴシック
 (when (eq system-type 'windows-nt)
