@@ -1,21 +1,27 @@
-;; Windows
-;; Super/Hyperキーの設定
-;; (setq w32-pass-lwindow-to-system nil)
-;; (setq w32-lwindow-modifier 'super) ; Left Windows key
-;; (setq w32-pass-rwindow-to-system nil)
-;; (setq w32-rwindow-modifier 'super) ; Right Windows key
-(setq w32-pass-apps-to-system nil)
-;; (setq w32-apps-modifier 'hyper) ; Menu/App key
-;; (setq w32-scroll-lock-modifier 'super) ; ScrollLck
-(setq w32-apps-modifier 'super) ; Menu/App key
-(setq w32-scroll-lock-modifier 'hyper) ; ScrollLck
-(setq mac-right-command-modifier 'hyper)
+
+;; 修飾キーの設定
+(when (eq system-type 'windows-nt)
+  ;; Windows
+  (setq w32-pass-lwindow-to-system nil)
+  (setq w32-lwindow-modifier 'super) ; Left Windows key
+  (setq w32-pass-apps-to-system nil)
+  (setq w32-apps-modifier 'hyper) ; Menu/App key
+  (w32-register-hot-key [s-])
+  (w32-register-hot-key [H-])
+  (w32-register-hot-key [M-])
+  (w32-register-hot-key [A-])
+  (w32-register-hot-key [C-])
+  (setq w32-scroll-lock-modifier 'hyper) ; ScrollLck
+  )
+
+;;macos
+(when (eq system-type 'darwin)
+  (setq mac-right-command-modifier 'hyper))
 
 
 ;; C-mにnewline-and-indentを割り当てる
 ;; global-set-keyを使用
 (define-key global-map (kbd "C-m") 'newline-and-indent)
-(define-key global-map (kbd "<convert>") 'newline-and-indent)
 
 ;; 入力されるキーシーケンスを置き換える
 ;; ?\C-?はDEL
