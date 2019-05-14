@@ -1,4 +1,3 @@
-
 ;; 修飾キーの設定
 (when (eq system-type 'windows-nt)
   ;; Windows
