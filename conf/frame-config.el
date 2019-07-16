@@ -73,4 +73,7 @@
 ;; メニューバーを非表示
 (menu-bar-mode -1)
 
+;; 半透明
+(set-frame-parameter (selected-frame) 'alpha '(85 50))
+                     
 (provide 'frame-config)
