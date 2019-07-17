@@ -1,11 +1,13 @@
 ;;; flycheck-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+
+(add-to-list 'load-path (directory-file-name
+                         (or (file-name-directory #$) (car load-path))))
+
 
-;;;### (autoloads nil "flycheck" "../../../../.emacs.d/elpa/flycheck-20170721.138/flycheck.el"
-;;;;;;  "3efaeeef26bea91405b703da061ff541")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/flycheck-20170721.138/flycheck.el
+;;;### (autoloads nil "flycheck" "flycheck.el" (0 0 0 0))
+;;; Generated autoloads from flycheck.el
 
 (autoload 'flycheck-manual "flycheck" "\
 Open the Flycheck manual.
@@ -225,14 +227,26 @@ Use this together with the `option', `option-list' and
 
 (function-put 'flycheck-def-option-var 'doc-string-elt '4)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck" '("flycheck-" "list-flycheck-errors" "locate-rebar3-project-root" "contains-rebar-config" "help-flycheck-checker-d" "read-flycheck-")))
+
 ;;;***
 
-;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/flycheck-20170721.138/flycheck-autoloads.el"
-;;;;;;  "../../../../.emacs.d/elpa/flycheck-20170721.138/flycheck-buttercup.el"
-;;;;;;  "../../../../.emacs.d/elpa/flycheck-20170721.138/flycheck-ert.el"
-;;;;;;  "../../../../.emacs.d/elpa/flycheck-20170721.138/flycheck-pkg.el"
-;;;;;;  "../../../../.emacs.d/elpa/flycheck-20170721.138/flycheck.el")
-;;;;;;  (22898 7030 0 0))
+;;;### (autoloads nil "flycheck-buttercup" "flycheck-buttercup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from flycheck-buttercup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-buttercup" '("flycheck-buttercup-format-error-list")))
+
+;;;***
+
+;;;### (autoloads nil "flycheck-ert" "flycheck-ert.el" (0 0 0 0))
+;;; Generated autoloads from flycheck-ert.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flycheck-ert" '("flycheck-er")))
+
+;;;***
+
+;;;### (autoloads nil nil ("flycheck-pkg.el") (0 0 0 0))
 
 ;;;***
 
@@ -240,5 +254,6 @@ Use this together with the `option', `option-list' and
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
+;; coding: utf-8
 ;; End:
 ;;; flycheck-autoloads.el ends here

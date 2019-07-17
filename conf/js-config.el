@@ -2,8 +2,7 @@
 ;;; JavaScript系の設定
 ;;;========================================
 
-;; 拡張子jsのファイルを開いたときjs-modeに
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; 定義ジャンプまわりの設定
 (defun js-mode-keybinds ()

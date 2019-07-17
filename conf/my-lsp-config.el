@@ -2,6 +2,7 @@
 (require 'lsp)
 (require 'lsp-clients)
 (add-hook 'prog-mode-hook 'lsp)
+(add-hook 'vue-mode-hook 'lsp)
 
 
 (require 'lsp-ui)
