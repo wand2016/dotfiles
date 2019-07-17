@@ -123,7 +123,6 @@
 (require 'js-config)
 (require 'php-config)
 (require 'html-config)
-(require 'vue-config)
 (require 'haskell-config)
 (require 'prolog-config)
 (require 'markdown-config)
