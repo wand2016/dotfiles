@@ -121,13 +121,9 @@
 (require 'my-lsp-config)
 
 (require 'js-config)
-(require 'json-config)
-(require 'css-config)
 (require 'php-config)
 (require 'html-config)
 (require 'vue-config)
-(require 'python-config)
-(require 'csharp-config)
 (require 'haskell-config)
 (require 'prolog-config)
 (require 'markdown-config)
@@ -143,7 +139,6 @@
 ;;;========================================
 ;;; キーバインド
 ;;; 追加機能とかのもあるのでさいご
-;;; conf/key-bind-config.el
 ;;;========================================
 (require 'key-bind-config)
 
