@@ -1039,9 +1039,10 @@ case-insensitive.
 On other systems, returns path without change."
   (if (eq system-type 'windows-nt) (downcase path) path))
 
-(defun lsp--uri-to-path (uri)
+(defun lsp--uri-to-path (uri-or-path)
   "Convert URI to a file path."
-  (let* ((url (url-generic-parse-url (url-unhex-string uri)))
+  (let* ((uri (lsp--path-to-uri uri-or-path))
+         (url (url-generic-parse-url (url-unhex-string uri)))
          (type (url-type url))
          (file (decode-coding-string (url-filename url) locale-coding-system))
          (file-name (if (and type (not (string= type "file")))
