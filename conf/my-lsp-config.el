@@ -29,4 +29,31 @@
 (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-find-references)
 
 
+;; lsp-modeの関数のバグ修正
+;; Vue SFC編集時、file:///スキーマのないパスが渡ってきてしまうことがある
+(defun lsp--uri-to-path (uri-or-path)
+  "Convert URI to a file path."
+  (let* ((uri (if (and (eq system-type 'windows-nt)
+                       (file-exists-p uri-or-path)
+                       (not (url-file-exists-p uri-or-path)))
+                  (concatenate 'string "file:///" uri-or-path)
+                uri-or-path))
+         (url (url-generic-parse-url (url-unhex-string uri)))
+         (type (url-type url))
+         (file (decode-coding-string (url-filename url) locale-coding-system))
+         (file-name (if (and type (not (string= type "file")))
+                        (if-let ((handler (lsp--get-uri-handler type)))
+                            (funcall handler uri)
+                          (signal 'lsp-file-scheme-not-supported (list uri)))
+                      ;; `url-generic-parse-url' is buggy on windows:
+                      ;; https://github.com/emacs-lsp/lsp-mode/pull/265
+                      (or (and (eq system-type 'windows-nt)
+                               (eq (elt file 0) ?\/)
+                               (substring file 1))
+                          file))))
+
+    (lsp--fix-path-casing
+     (concat (-some 'lsp--workspace-host-root (lsp-workspaces)) file-name))))
+
+
 (provide 'my-lsp-config)
