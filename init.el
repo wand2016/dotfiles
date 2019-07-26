@@ -134,6 +134,10 @@
 ;; ========================================
 (require 'eww-config)
 
+(require twittering-mode)
+(when (eq system-type 'windows-nt)
+    (setq twittering-curl-program "c:/Program Files/Git/mingw64/bin/curl.exe"))
+
 
 ;;;========================================
 ;;; キーバインド
