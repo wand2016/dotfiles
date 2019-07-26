@@ -150,9 +150,10 @@
  '(custom-safe-themes
    (quote
     ("e083a478848444bf0c0caa8c875f8645f5b8a17f4ba0991f95b83a26d6983296" "41c8c11f649ba2832347fe16fe85cf66dafe5213ff4d659182e25378f9cfc183" "551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" default)))
+ '(lsp-intelephense-files-max-size 10485760)
  '(package-selected-packages
    (quote
-    (mmm-mode vue-mode stylus-mode flymake lsp-mode mozc-popup mozc-im exec-path-from-shell markdown-preview-mode org-pomodoro geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides mozc js-doc add-node-modules-path eslint-fix prettier-js go-mode dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema)))
+    (twittering-mode mmm-mode vue-mode stylus-mode flymake lsp-mode mozc-popup mozc-im exec-path-from-shell markdown-preview-mode org-pomodoro geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides mozc js-doc add-node-modules-path eslint-fix prettier-js go-mode dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema)))
  '(prolog-program-name
    (quote
     (((getenv "EPROLOG")
