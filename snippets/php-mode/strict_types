@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: strict_types=1
+# key: st
+# --
+declare(strict_types=1);
