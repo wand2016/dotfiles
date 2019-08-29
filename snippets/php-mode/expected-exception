@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: expectedException annotation
+# key: *ee
+# group: PHPUnit
+# --
+* @expectedException \\${Exception}${0:
+*}

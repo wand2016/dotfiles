@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: PHPUnit setUp
+# key: setup
+# group: PHPUnit
+# --
+
+public function setUp(): void
+{
+    parent::setUp();
+    $0
+}

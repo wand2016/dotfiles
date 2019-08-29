@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: constructor
+# key: ctor
+# group: definitions
+# --
+/** @var ${2:$(yas-text)} */
+private \$${3:$(yas-text)};
+
+/**
+ * @param ${2:$(yas-text)} \$${3:$(yas-text)}
+ */
+public function __constructor(${2:type} \$${3:name})
+{
+    \$this->${3:$(yas-text)} = \$${3:$(yas-text)};
+}

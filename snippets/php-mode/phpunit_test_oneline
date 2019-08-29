@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # contributor: DAIKI Horiyama <d19921207@gmail.com>
-# name: strict_types
-# key: st
-# group: definitions
+# name: test annotation (single-line)
+# key: @test
+# group: PHPUnit
 # --
-declare(strict_types=1);
+/** @test */

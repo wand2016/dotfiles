@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: procedure a.k.a. void function
+# key: proc
+# group: definitions
+# --
+
+/**
+ * @param ${2:$(yas-text)}
+ * @return void
+ */
+${4:public }function ${1:name}(${2:type $arg}): void
+{
+    $0
+}
