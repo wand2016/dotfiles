@@ -10,7 +10,7 @@ private \$${3:$(yas-text)};
 /**
  * @param ${2:$(yas-text)} \$${3:$(yas-text)}
  */
-public function __constructor(${2:type} \$${3:name})
+public function __construct(${2:type} \$${3:name})
 {
     \$this->${3:$(yas-text)} = \$${3:$(yas-text)};
 }
