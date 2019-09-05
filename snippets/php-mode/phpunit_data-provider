@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: dataProvider annotation
+# key: *dp
+# group: PHPUnit
+# --
+* @dataProvider ${dataProvider}${0:
+*}

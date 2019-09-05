@@ -27,6 +27,7 @@
 ;; remap definition jump
 (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-find-definition)
 (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-find-references)
+(define-key lsp-mode-map (kbd "<f2>") #'lsp-rename)
 
 
 ;; lsp-modeの関数のバグ修正
@@ -54,6 +55,5 @@
 
     (lsp--fix-path-casing
      (concat (-some 'lsp--workspace-host-root (lsp-workspaces)) file-name))))
-
 
 (provide 'my-lsp-config)

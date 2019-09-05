@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: test annotation with PHP-Doc frame
+# key: test
+# group: PHPUnit
+# --
+/**
+ * @test
+ */
+public function ${something_is_something}()
+{
+    $0
+}

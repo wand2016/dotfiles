@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: PHPDoc:test
-# key: @test
-# --
-/**
- * @test
- */
