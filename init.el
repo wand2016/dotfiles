@@ -138,6 +138,11 @@
 (when (eq system-type 'windows-nt)
     (setq twittering-curl-program "c:/Program Files/Git/mingw64/bin/curl.exe"))
 
+;;;========================================
+;;; /docker:[user@]<hash>:/
+;;; でコンテナに入れるように
+;;;========================================
+(require 'docker-tramp-compat)
 
 ;;;========================================
 ;;; キーバインド
