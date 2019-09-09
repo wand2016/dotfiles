@@ -75,5 +75,9 @@
 
 ;; 半透明
 (set-frame-parameter (selected-frame) 'alpha '(85 50))
+
+
+;; cursor点滅止める
+(setq visible-cursor nil)
                      
 (provide 'frame-config)
