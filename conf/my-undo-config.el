@@ -14,4 +14,6 @@
   (define-key global-map (kbd "M-[") 'point-undo)
   (define-key global-map (kbd "M-]") 'point-redo))
 
+(setq undohist-ignored-files '(".git/*"))
+
 (provide 'my-undo-config)
