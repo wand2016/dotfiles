@@ -52,20 +52,19 @@
             (cons 'org-pomodoro-mode-line
                   (cdr mode-line-format))))
 
-;; 等幅設定0
-;;** Consolas + MSゴシック
-(when (eq system-type 'windows-nt)
-  (cond ((display-graphic-p)
-         (set-default-font "Consolas 10")
+;; 等幅フォント設定
+(when (display-graphic-p)
+  (cond ((eq system-type 'windows-nt)
+         (set-frame-font "Consolas 10") ;Windows: Consolas + MSゴシック
          (set-fontset-font (frame-parameter nil 'font)
                            'japanese-jisx0208
-                           '("ＭＳ ゴシック" . "unicode-bmp")
-                           )
+                           '("ＭＳ ゴシック" . "unicode-bmp"))
          (set-fontset-font (frame-parameter nil 'font)
                            'katakana-jisx0201
-                           '("ＭＳ ゴシック" . "unicode-bmp")
-                           ))
-        (t 0)))    ;; ターミナル用
+                           '("ＭＳ ゴシック" . "unicode-bmp")))
+        ((eq system-type 'gnu/linux) ;なんか等幅なやつ
+         (set-frame-font "-xos4-terminus-medium-r-normal--16-*-72-72-c-80-fontset-auto8"))
+        (t 0)))                         ;others
 
 
 ;; ツールバーを非表示
