@@ -63,7 +63,7 @@
                            'katakana-jisx0201
                            '("ＭＳ ゴシック" . "unicode-bmp")))
         ((eq system-type 'gnu/linux) ;なんか等幅なやつ
-         (set-frame-font "-xos4-terminus-medium-r-normal--16-*-72-72-c-80-fontset-auto8"))
+         (set-frame-font "Terminus"))
         (t 0)))                         ;others
 
 
