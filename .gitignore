@@ -12,3 +12,6 @@ tramp
 projectile-bookmarks.eld
 elpa/archives/gnu/archive-contents.signed
 transient/
+/%backup%~
+/.org-id-locations
+/elpa/gnupg/.gpg-v21-migrated
