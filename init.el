@@ -166,7 +166,7 @@
   ;; org-capture and enrty
   (setq org-todo-keywords
         '((sequence "TASK(t)" "WAIT(w)" "|" "DONE(d)" "ABORT(a)" "SOMEDAY(s)")))
-  (setq org-tag-alist '(("PROJECT" . ?p) ("MEMO" . ?m) ("PETIT" . ?t)))
+  (setq org-tag-alist '(("PROJECT" . ?p) ("MEMO" . ?m) ("PETIT" . ?t) ("BLOG_DAILY_STUDY" . ?b)))
   (setq org-capture-templates
         '(("t" "Task" entry (file+headline org-default-notes-file "inbox")
            "** TASK %?\n   CREATED: %U\n")
