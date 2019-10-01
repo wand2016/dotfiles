@@ -28,6 +28,7 @@
 (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-find-definition)
 (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-find-references)
 (define-key lsp-mode-map (kbd "<f2>") #'lsp-rename)
+(define-key lsp-mode-map (kbd "C-M-?") #'lsp-find-implementation)
 
 
 ;; lsp-modeの関数のバグ修正
