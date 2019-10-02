@@ -166,12 +166,12 @@
   ;; org-capture and enrty
   (setq org-todo-keywords
         '((sequence "TASK(t)" "WAIT(w)" "|" "DONE(d)" "ABORT(a)" "SOMEDAY(s)")))
-  (setq org-tag-alist '(("PROJECT" . ?p) ("MEMO" . ?m) ("PETIT" . ?t) ("BLOG_DAILY_STUDY" . ?b)))
+  (setq org-tag-alist '(("PROJECT" . ?p) ("MEMO" . ?m) ("PETIT" . ?t)))
   (setq org-capture-templates
         '(("t" "Task" entry (file+headline org-default-notes-file "inbox")
            "** TASK %?\n   CREATED: %U\n")
-          ("i" "Idea" entry (file+headline org-default-notes-file "idea")
-           "** %?\n   CREATED: %U\n")))
+          ;; ("i" "Idea" entry (file+headline org-default-notes-file "idea")
+          ;;  "** %?\n   CREATED: %U\n")))
   (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
   ;; org-clock
   (setq org-log-done 'time)  ;; add a time stamp to the task when done
