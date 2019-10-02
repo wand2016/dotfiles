@@ -94,7 +94,6 @@
 (require 'frame-config)
 
 (require 'my-mozc-config)
-(require 'my-org-config)
 
 ;;;==========================================
 ;;; 機能追加
