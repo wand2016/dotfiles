@@ -169,9 +169,7 @@
   (setq org-tag-alist '(("PROJECT" . ?p) ("MEMO" . ?m) ("PETIT" . ?t)))
   (setq org-capture-templates
         '(("t" "Task" entry (file+headline org-default-notes-file "inbox")
-           "** TASK %?\n   CREATED: %U\n")
-          ;; ("i" "Idea" entry (file+headline org-default-notes-file "idea")
-          ;;  "** %?\n   CREATED: %U\n")))
+           "** TASK %?\n   CREATED: %U\n")))
   (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
   ;; org-clock
   (setq org-log-done 'time)  ;; add a time stamp to the task when done
