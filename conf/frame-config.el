@@ -64,8 +64,8 @@
          (set-fontset-font (frame-parameter nil 'font)
                            'katakana-jisx0201
                            '("ＭＳ ゴシック" . "unicode-bmp")))
-        ((eq system-type 'gnu/linux) ;なんか等幅なやつ
-         (set-frame-font "Terminus"))
+        ((eq system-type 'gnu/linux)
+         (set-frame-font "MyricaM M"))
         (t 0)))                         ;others
 
 
