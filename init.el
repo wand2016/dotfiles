@@ -380,10 +380,18 @@
 
 
 (require 'haskell-config)
-(require 'prolog-config)
-(require 'markdown-config)
-(require 'lisp-config)
 
+
+
+;; lisp
+
+;; インデントをいい感じにする
+(use-package 'lisp-mode
+  :hook (lambda ()
+          (set (make-local-variable 'lisp-indent-function)
+               'common-lisp-indent-function)))
+
+
 
 ;; ========================================
 ;; テキストブラウザの設定
@@ -480,7 +488,7 @@
 (use-package magit
   :commands (magit-status)
   :bind (("C-x g" . 'magit-status)))
-  
+
 
 
 ;;;========================================
