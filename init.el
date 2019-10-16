@@ -56,18 +56,17 @@
       ;; インストールしたパッケージにロードパスを通して読み込む
       (package-initialize))))
 
-;; auto-install
-;; http://www.emacswikiがエラーのもとだったため
-;; 全部httpsに直した。
-(when (require 'auto-install nil t)
+(use-package auto-install
+  :config
   (setq auto-install-directory "~/.emacs.d/elisp/")
   (auto-install-update-emacswiki-package-name t)
   (auto-install-compatibility-setup))
 
 
 ;; 環境変数持ち込む
-(when (and (not (eq system-type 'windows-nt))
-           (require 'exec-path-from-shell nil t))
+(use-package exec-path-from-shell
+  :if (not (eq system-type 'windows-nt))
+  :config
   (exec-path-from-shell-initialize))
 
 
@@ -76,16 +75,35 @@
 ;;;========================================
 (setq-default indent-tabs-mode nil)
 
-;;;==========================================
-;;; サーバーの起動
-;;;==========================================
-(require 'server-config)
+
+(use-package server
+  :config
+  (unless (server-running-p)
+    (server-start)))
 
+
 ;;;==========================================
 ;;; 文字コード系の設定
-;;; conf/char-code-config.el
 ;;;==========================================
-(require 'char-code-config)
+
+;; 文字コードの設定
+(set-language-environment "Japanese")
+(prefer-coding-system 'utf-8)
+
+;; windowsにて、shellの文字化けを回避
+(when (eq system-type 'windows-nt)
+  ;; Windows用
+  (set-file-name-coding-system 'cp932)
+  (add-hook 'shell-mode-hook
+            (lambda ()
+              (set-buffer-process-coding-system 'sjis 'sjis))))
+
+;; mac
+(when (eq system-type 'darwin)
+  (add-hook 'shell-mode-hook
+            (lambda ()
+              (set-buffer-process-coding-system 'utf-8-hfs 'utf-8-hfs))))
+
 
 ;;;========================================
 ;;; frameの設定
@@ -104,15 +122,98 @@
 ;; 補完設定
 (require 'company-config)
 
-(require 'my-undo-config)
-(require 'my-helm-config)
-(require 'my-grep-config)
-(require 'my-diff-config)
-(require 'my-moccur-config)
+
+
+;; undohist
+;; ファイルクローズ後も履歴をさかのぼれる
+(use-package undohist
+  :config
+  (setq undohist-ignored-files '(".git/*"))
+  (undohist-initialize))
+
+;; undo-tree
+;; 履歴樹形図
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode))
+
+
+;; ========================================
+;;  helmの設定
+;; ========================================
+
+(use-package helm-config
+  :config
+  (helm-mode 1)
+  (helm-popup-tip-mode t)
+  (setq
+   helm-idle-delay 0.3
+   helm-input-idle-delay 0.1
+   helm-candidate-number-limit 100)
+  
+  (bind-keys :map helm-map
+             ("<tab>" . helm-execute-persistent-action)
+             ("C-i" . helm-execute-persistent-action)
+             ("C-z" . helm-select-action)
+  ))
+
+(use-package helm-descbinds
+  :config
+  (helm-descbinds-install)
+  (set-face-background 'helm-ff-dotted-directory nil) ;; ドットディレクトリに色がついているのが見づらいのでやめる
+
+  :bind (("C-x C-b" . helm-for-files)
+         ("C-x C-f" . helm-find-files)
+         ("M-y" . helm-show-kill-ring)
+         ("C-M-o" . helm-occur)
+         ("M-x" . helm-M-x)))
+
+
+
+(use-package wgrep)
+
+;; grep,findの実行ファイルの場所の指定
+(when (eq system-type 'windows-nt)
+  (setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\""
+        grep-program "\"C:\\Program Files\\Git\\usr\\bin\\grep.exe\""
+        null-device "/dev/null"))
+
+
+;; grepの実行ファイルの場所の指定
+(when (eq system-type 'windows-nt)
+  (setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\""
+        grep-program "\"C:\\Program Files\\Git\\usr\\bin\\grep.exe\""
+        null-device "/dev/null"))
+
+
+;; ediffの設定
+;; ediffコントロールパネルを別フレームにしない
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+
+
+(use-package color-moccur
+  :bind (("M-o" . occur-by-moccur))
+  :config
+  (setq moccur-split-word t) ;; スペース区切りでAND検索
+  ;; ディレクトリ検索のとき除外するファイル)
+  (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
+  (add-to-list 'dmoccur-exclusion-mask "^#.+#$"))
+
+;; moccur-editの設定
+(use-package moccur-edit)
+
+
+
+
 (require 'ace-jump-config)
-(require 'my-yas-config)
 
+
+(use-package yasnippet
+  :config
+  (yas-global-mode t))
 
+
 ;; ========================================
 ;;  各種言語の設定
 ;; ========================================
@@ -133,17 +234,16 @@
 ;; ========================================
 (require 'eww-config)
 
-(require 'twittering-mode)
-(when (eq system-type 'windows-nt)
-    (setq twittering-curl-program "c:/Program Files/Git/mingw64/bin/curl.exe"))
+(use-package twittering-mode
+  :config
+  (when (eq system-type 'windows-nt)
+    (setq twittering-curl-program "c:/Program Files/Git/mingw64/bin/curl.exe")))
 
 ;;;========================================
 ;;; /docker:[user@]<hash>:/
 ;;; でコンテナに入れるように
 ;;;========================================
-(require 'docker-tramp-compat)
-
-
+(use-package docker-tramp-compat)
 
 
 ;; org
@@ -213,14 +313,11 @@
 
 
 ;; forecast
-
-(require 'forecast)
-(setq calendar-latitude 35.7037033
-      calendar-longitude 139.7718418
-      forecast-api-key "ca9f67658afb3820c4a7f3155828befb")
-
-
-
+(use-package forecast
+  :config
+  (setq calendar-latitude 35.7037033
+        calendar-longitude 139.7718418
+        forecast-api-key "ca9f67658afb3820c4a7f3155828befb"))
 
 ;;;========================================
 ;;; キーバインド
@@ -240,7 +337,7 @@
  '(lsp-intelephense-files-max-size 10485760)
  '(package-selected-packages
    (quote
-    (forecast use-package magit cursor-chg typescript-mode twittering-mode mmm-mode vue-mode stylus-mode flymake lsp-mode mozc-popup mozc-im exec-path-from-shell markdown-preview-mode org-pomodoro geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides mozc js-doc add-node-modules-path eslint-fix prettier-js go-mode dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp ace-jump-mode undohist point-undo helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema)))
+    (forecast use-package magit cursor-chg typescript-mode twittering-mode mmm-mode vue-mode stylus-mode flymake lsp-mode mozc-popup mozc-im exec-path-from-shell markdown-preview-mode geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides mozc js-doc add-node-modules-path eslint-fix prettier-js go-mode dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp ace-jump-mode undohist helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema)))
  '(prolog-program-name
    (quote
     (((getenv "EPROLOG")

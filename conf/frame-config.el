@@ -40,19 +40,12 @@
 (column-number-mode t)
 
 ;; 行数表示
-(require 'linum)
-(global-linum-mode)
+(use-package linum
+  :config
+  (global-linum-mode))
 
 ;; タブの表示幅。初期値は8
 (setq-default tab-width 4)
-
-;; モードラインの設定
-;; - pomodoroタイマーを先頭に持ってくる
-(require 'org-pomodoro)
-(setq-default mode-line-format
-      (cons (car mode-line-format)
-            (cons 'org-pomodoro-mode-line
-                  (cdr mode-line-format))))
 
 ;; 等幅フォント設定
 (when (display-graphic-p)
