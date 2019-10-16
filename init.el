@@ -364,7 +364,21 @@
 
 (require 'js-config)
 (require 'php-config)
-(require 'html-config)
+
+;; ========================================
+;;  HTMLの設定
+;; ========================================
+
+
+(use-package web-mode
+  :mode (("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . web-mode)
+         ;; blade template
+         ("\\.blade\\.php\\'" . web-mode))
+  :config
+  (setq web-mode-markup-indent-offset 2))
+
+
+
 (require 'haskell-config)
 (require 'prolog-config)
 (require 'markdown-config)
