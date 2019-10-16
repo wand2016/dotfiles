@@ -105,11 +105,87 @@
               (set-buffer-process-coding-system 'utf-8-hfs 'utf-8-hfs))))
 
 
+
+
 ;;;========================================
 ;;; frameの設定
-;;; conf/frame-config.el
 ;;;========================================
-(require 'frame-config)
+
+;; カッコがきれいなやつ
+(use-package cl-lib)
+(use-package color)
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode)
+  :config
+  ;; ギラギラした色にする
+  (global-rainbow-delimiters-mode t)
+  (cl-loop
+   for index from 1 to rainbow-delimiters-max-face-count
+   do
+   (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
+     (cl-callf color-saturate-name (face-foreground face) 30)))
+  (global-rainbow-delimiters-mode -1))
+
+
+;; かっこいいテーマ
+(load-theme 'darcula t)
+
+;; タイトルバーにファイルのフルパスを表示
+(setq frame-title-format "%f")
+
+;; 初期フレームの設定
+(setq initial-frame-alist
+      (append
+       '(;(top . 10) (left . 30)
+		 (width . 80) (height . 40))
+       initial-frame-alist))
+
+(setq default-frame-alist
+      (append
+	   '((width . 70) (height . 35))
+	   default-frame-alist))
+
+
+;; カーソル座標
+(line-number-mode t)
+(column-number-mode t)
+
+;; 行数表示
+(use-package linum
+  :config
+  (global-linum-mode))
+
+;; タブの表示幅。初期値は8
+(setq-default tab-width 4)
+
+;; 等幅フォント設定
+(when (display-graphic-p)
+  (cond ((eq system-type 'windows-nt)
+         (set-frame-font "Consolas 10") ;Windows: Consolas + MSゴシック
+         (set-fontset-font (frame-parameter nil 'font)
+                           'japanese-jisx0208
+                           '("ＭＳ ゴシック" . "unicode-bmp"))
+         (set-fontset-font (frame-parameter nil 'font)
+                           'katakana-jisx0201
+                           '("ＭＳ ゴシック" . "unicode-bmp")))
+        ((eq system-type 'gnu/linux)
+         (set-frame-font "MyricaM M"))
+        (t 0)))                         ;others
+
+
+;; ツールバーを非表示
+(tool-bar-mode -1)
+;; メニューバーを非表示
+(menu-bar-mode -1)
+
+;; 半透明
+(set-frame-parameter (selected-frame) 'alpha '(85 50))
+
+
+;; cursor点滅止める
+(setq visible-cursor nil)
+
+
 
 (require 'my-mozc-config)
 
@@ -119,8 +195,81 @@
 
 ;; 矩形編集の設定
 (require 'my-rect-edit-config)
+
+
 ;; 補完設定
-(require 'company-config)
+;; ========================================
+;; tabの挙動をいい感じに
+;; - 候補が1つ  : それを選択
+;; - 候補が複数
+;;   - 挿入可能なprefixがある : それを挿入
+;;   -                   ない : company-select-next
+;; ========================================
+(defun company--insert-candidate2 (candidate)
+  (when (> (length candidate) 0)
+    (setq candidate (substring-no-properties candidate))
+    (if (eq (company-call-backend 'ignore-case) 'keep-prefix)
+        (insert (company-strip-prefix candidate))
+      (if (equal company-prefix candidate)
+          (company-select-next)
+        (delete-region (- (point) (length company-prefix)) (point))
+        (insert candidate)))))
+
+(defun company-complete-common2 ()
+  (interactive)
+  (when (company-manual-begin)
+    (if (and (not (cdr company-candidates))
+             (equal company-common (car company-candidates)))
+        (company-complete-selection)
+      (company--insert-candidate2 company-common))))
+
+;; yasnippetとの連携
+(defvar company-mode/enable-yas t
+  "Enable yasnippet for all backends.")
+(defun company-mode/backend-with-yas (backend)
+  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+      backend
+    (append (if (consp backend) backend (list backend))
+            '(:with company-yasnippet))))
+
+
+
+(use-package company
+  :config
+  (global-company-mode) ; 全バッファで有効にする 
+  (setq company-idle-delay 0
+        company-minimum-prefix-length 2
+        company-selection-wrap-around t ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+        company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+  
+  :bind (:map company-active-map
+              ("M-n" . nil)
+              ("M-p" . nil)
+              ("C-h" . nil)
+              ("C-n" . company-select-next)
+              ("C-p" . company-select-previous)
+              ("<tab>" . company-complete-common2)
+              ("<backtab>" . 'company-select-previous))
+
+  :init
+  ;; ========================================
+  ;; 候補のソート
+  ;; 
+  ;; [標準]
+  ;; - company-sort-by-occurrence
+  ;; 	現在のバッファの現在見えている部分の中で各候補を検索
+  ;; 	その結果からランク付けしてソート
+  ;; - company-sort-by-backend-importance
+  ;; 	backendがgroup（リスト）のとき、:withキーワードの
+  ;; 	前にあるbackendから生成されたものが前に並び，
+  ;; 	後ろにあるbackendから生成されたものが後ろに並ぶ
+  ;; [company-statictics]
+  ;; - company-sort-by-statictics
+  ;;     補完候補の履歴でソート
+  ;; ========================================
+  (add-hook 'after-init-hook #'company-statistics-mode)
+  (setq company-transformers
+        '(company-sort-by-statistics company-sort-by-backend-importance)))
 
 
 
@@ -142,6 +291,8 @@
 ;;  helmの設定
 ;; ========================================
 
+(use-package helm)
+
 (use-package helm-config
   :config
   (helm-mode 1)
@@ -151,11 +302,10 @@
    helm-input-idle-delay 0.1
    helm-candidate-number-limit 100)
   
-  (bind-keys :map helm-map
-             ("<tab>" . helm-execute-persistent-action)
-             ("C-i" . helm-execute-persistent-action)
-             ("C-z" . helm-select-action)
-  ))
+  :bind (:map helm-map
+              ("<tab>" . helm-execute-persistent-action)
+              ("C-i" . helm-execute-persistent-action)
+              ("C-z" . helm-select-action)))
 
 (use-package helm-descbinds
   :config
@@ -178,13 +328,6 @@
         grep-program "\"C:\\Program Files\\Git\\usr\\bin\\grep.exe\""
         null-device "/dev/null"))
 
-
-;; grepの実行ファイルの場所の指定
-(when (eq system-type 'windows-nt)
-  (setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\""
-        grep-program "\"C:\\Program Files\\Git\\usr\\bin\\grep.exe\""
-        null-device "/dev/null"))
-
 
 ;; ediffの設定
 ;; ediffコントロールパネルを別フレームにしない
@@ -192,7 +335,7 @@
 
 
 
-(use-package color-moccur
+(use-package moccur
   :bind (("M-o" . occur-by-moccur))
   :config
   (setq moccur-split-word t) ;; スペース区切りでAND検索
@@ -200,7 +343,6 @@
   (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
   (add-to-list 'dmoccur-exclusion-mask "^#.+#$"))
 
-;; moccur-editの設定
 (use-package moccur-edit)
 
 
@@ -318,6 +460,14 @@
   (setq calendar-latitude 35.7037033
         calendar-longitude 139.7718418
         forecast-api-key "ca9f67658afb3820c4a7f3155828befb"))
+
+
+
+(use-package magit
+  :commands (magit-status)
+  :bind (("C-x g" . 'magit-status)))
+  
+
 
 ;;;========================================
 ;;; キーバインド
