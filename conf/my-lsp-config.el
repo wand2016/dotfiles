@@ -29,6 +29,8 @@
 (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-find-references)
 (define-key lsp-mode-map (kbd "<f2>") #'lsp-rename)
 (define-key lsp-mode-map (kbd "C-M-?") #'lsp-find-implementation)
+(define-key xref--xref-buffer-mode-map (kbd "<tab>") #'xref-goto-xref)
+(define-key xref--xref-buffer-mode-map (kbd "<return>") #'xref-quit-and-goto-xref)
 
 
 ;; lsp-modeの関数のバグ修正
