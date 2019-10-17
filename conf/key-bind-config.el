@@ -33,7 +33,12 @@
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
 
 ;; "C-t" でウインドウ切り替え。*初期値はtranspose-chars
-(define-key global-map (kbd "C-t") 'other-window)
+(defun other-window-back ()
+  (interactive)
+  (other-window -1))
+
+(define-key global-map (kbd "C-t") #'other-window)
+(define-key global-map (kbd "M-t") #'other-window-back)
 
 ;; 指定行数へ移動
 (define-key global-map (kbd "C-c g") 'goto-line)
@@ -47,7 +52,8 @@
 (define-key global-map (kbd "M-l") 'downcase-dwim)
 
 ;; diredでもC-tでタブ切り替え
-(define-key dired-mode-map (kbd "C-t") 'other-window)
+(define-key dired-mode-map (kbd "C-t") #'other-window)
+(define-key dired-mode-map (kbd "M-t") #'other-window-back)
 
 (provide 'key-bind-config)
 
