@@ -111,6 +111,9 @@
 ;;; frameの設定
 ;;;========================================
 
+;; かっこいいテーマ
+(load-theme 'darcula t)
+
 ;; カッコがきれいなやつ
 (use-package cl-lib)
 (use-package color)
@@ -126,9 +129,6 @@
      (cl-callf color-saturate-name (face-foreground face) 30)))
   (global-rainbow-delimiters-mode -1))
 
-
-;; かっこいいテーマ
-(load-theme 'darcula t)
 
 ;; タイトルバーにファイルのフルパスを表示
 (setq frame-title-format "%f")
@@ -158,21 +158,6 @@
 ;; タブの表示幅。初期値は8
 (setq-default tab-width 4)
 
-;; 等幅フォント設定
-(when (display-graphic-p)
-  (cond ((eq system-type 'windows-nt)
-         (set-frame-font "Consolas 10") ;Windows: Consolas + MSゴシック
-         (set-fontset-font (frame-parameter nil 'font)
-                           'japanese-jisx0208
-                           '("ＭＳ ゴシック" . "unicode-bmp"))
-         (set-fontset-font (frame-parameter nil 'font)
-                           'katakana-jisx0201
-                           '("ＭＳ ゴシック" . "unicode-bmp")))
-        ((eq system-type 'gnu/linux)
-         (set-frame-font "MyricaM M"))
-        (t 0)))                         ;others
-
-
 ;; ツールバーを非表示
 (tool-bar-mode -1)
 ;; メニューバーを非表示
@@ -181,9 +166,11 @@
 ;; 半透明
 (set-frame-parameter (selected-frame) 'alpha '(85 50))
 
-
 ;; cursor点滅止める
 (setq visible-cursor nil)
+
+;; 等幅フォント設定
+(set-face-font 'default "MyricaM M")
 
 
 
