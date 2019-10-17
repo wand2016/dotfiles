@@ -291,33 +291,31 @@
 ;;  helmの設定
 ;; ========================================
 
-(use-package helm)
+(use-package helm
+  :bind (("C-x C-b" . helm-for-files)
+         ("C-x C-f" . helm-find-files)
+         ("M-y" . helm-show-kill-ring)
+         ("C-M-o" . helm-occur)
+         ("M-x" . helm-M-x)
+         :map helm-map
+         ("<tab>" . helm-execute-persistent-action)
+         ("C-i" . helm-execute-persistent-action)
+         ("C-z" . helm-select-action)))
+
+(use-package helm-descbinds
+  :config
+  (helm-descbinds-install))
 
 (use-package helm-config
   :config
   (helm-mode 1)
   (helm-popup-tip-mode t)
+  (set-face-background 'helm-ff-dotted-directory nil) ;; ドットディレクトリに色がついているのが見づらいのでやめる
   (setq
    helm-idle-delay 0.3
    helm-input-idle-delay 0.1
-   helm-candidate-number-limit 100)
+   helm-candidate-number-limit 100))
   
-  :bind (:map helm-map
-              ("<tab>" . helm-execute-persistent-action)
-              ("C-i" . helm-execute-persistent-action)
-              ("C-z" . helm-select-action)))
-
-(use-package helm-descbinds
-  :config
-  (helm-descbinds-install)
-  (set-face-background 'helm-ff-dotted-directory nil) ;; ドットディレクトリに色がついているのが見づらいのでやめる
-
-  :bind (("C-x C-b" . helm-for-files)
-         ("C-x C-f" . helm-find-files)
-         ("M-y" . helm-show-kill-ring)
-         ("C-M-o" . helm-occur)
-         ("M-x" . helm-M-x)))
-
 
 
 (use-package wgrep)
