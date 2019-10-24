@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: dataProvider function scaffold
+# key: dpy
+# group: PHPUnit
+# --
+public function ${dataProvider}(): iterable
+{
+    yield [
+        $0
+    ];
+}
