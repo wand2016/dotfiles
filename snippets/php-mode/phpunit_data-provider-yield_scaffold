@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # contributor: DAIKI Horiyama <d19921207@gmail.com>
-# name: dataProvider function scaffold
+# name: dataProvider generator scaffold
 # key: dpy
 # group: PHPUnit
 # --
