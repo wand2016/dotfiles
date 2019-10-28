@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: setc
+# key: setc
+# group: definitions
+# --
+/**
+ * ${3:description}
+ * @param ${2:type} \$$1
+ * @return $this
+ */
+public function set${1:$(upcase-initials yas-text)}(${2:$(yas-text)} \$$1): self
+{
+    \$this->$1 = \$$1;
+    return $this;
+}
