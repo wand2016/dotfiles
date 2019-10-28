@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: get
+# key: get
+# group: definitions
+# --
+/**
+ * ${3:description}
+ * @return ${2:$(yas-text)}
+ */
+public function get${1:$(upcase-initials yas-text)}(): ${2:type}
+{
+    
+    return \$this->$1;
+}
