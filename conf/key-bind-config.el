@@ -40,9 +40,6 @@
 (define-key global-map (kbd "C-t") #'other-window)
 (define-key global-map (kbd "M-t") #'other-window-back)
 
-;; 指定行数へ移動
-(define-key global-map (kbd "C-c g") 'goto-line)
-
 ;; F5で更新
 (define-key global-map (kbd "<f5>") 'revert-buffer)
 
