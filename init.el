@@ -114,6 +114,9 @@
 ;; かっこいいテーマ
 (load-theme 'darcula t)
 
+(add-hook 'prog-mode-hook
+          (lambda () (whitespace-mode t)))
+
 ;; カッコがきれいなやつ
 (use-package cl-lib)
 (use-package color)
