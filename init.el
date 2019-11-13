@@ -535,6 +535,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(lsp-ui-sideline-symbol ((t (:foreground "grey" :box (:line-width -1 :color "grey") :height 0.8))))
- '(lsp-ui-sideline-symbol-info ((t (:slant italic :height 0.8)))))
+ '(lsp-ui-sideline-symbol-info ((t (:slant italic :height 0.8))))
+ '(whitespace-line ((t (:background "gray20"))))
+ '(whitespace-newline ((t (:foreground "dim gray" :weight normal))))
+ '(whitespace-space ((t (:background "grey20" :foreground "dim gray")))))
 (put 'scroll-left 'disabled nil)
 (put 'magit-clean 'disabled nil)
