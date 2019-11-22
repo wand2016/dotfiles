@@ -20,21 +20,21 @@
   (let (path)
     (dolist (path paths paths)
       (let ((default-directory
-			  (expand-file-name (concat user-emacs-directory path))))
-		(add-to-list 'load-path default-directory)
-		(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-			(normal-top-level-add-subdirs-to-load-path))))))
+              (expand-file-name (concat user-emacs-directory path))))
+        (add-to-list 'load-path default-directory)
+        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+            (normal-top-level-add-subdirs-to-load-path))))))
 
 ;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
 (add-to-load-path "elisp" "conf" "public_repos" "auto-install")
 
 ;; バックアップファイルの作成場所をシステムのTempディレクトリに変更
 (add-to-list 'backup-directory-alist
-			 (cons "." "~/.emacs.d/backups"))
+             (cons "." "~/.emacs.d/backups"))
 
 ;; オートセーブファイルの作成場所をシステムのTempディレクトリに変更
 (setq auto-save-file-name-transforms
-	  `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
+      `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
 
 
 ;;;========================================
@@ -140,13 +140,13 @@
 (setq initial-frame-alist
       (append
        '(;(top . 10) (left . 30)
-		 (width . 80) (height . 40))
+         (width . 80) (height . 40))
        initial-frame-alist))
 
 (setq default-frame-alist
       (append
-	   '((width . 70) (height . 35))
-	   default-frame-alist))
+       '((width . 70) (height . 35))
+       default-frame-alist))
 
 
 ;; カーソル座標
@@ -247,12 +247,12 @@
   ;; 
   ;; [標準]
   ;; - company-sort-by-occurrence
-  ;; 	現在のバッファの現在見えている部分の中で各候補を検索
-  ;; 	その結果からランク付けしてソート
+  ;;   現在のバッファの現在見えている部分の中で各候補を検索
+  ;;   その結果からランク付けしてソート
   ;; - company-sort-by-backend-importance
-  ;; 	backendがgroup（リスト）のとき、:withキーワードの
-  ;; 	前にあるbackendから生成されたものが前に並び，
-  ;; 	後ろにあるbackendから生成されたものが後ろに並ぶ
+  ;;   backendがgroup（リスト）のとき、:withキーワードの
+  ;;   前にあるbackendから生成されたものが前に並び，
+  ;;   後ろにあるbackendから生成されたものが後ろに並ぶ
   ;; [company-statictics]
   ;; - company-sort-by-statictics
   ;;     補完候補の履歴でソート
@@ -305,7 +305,7 @@
    helm-idle-delay 0.3
    helm-input-idle-delay 0.1
    helm-candidate-number-limit 100))
-  
+
 
 
 (use-package wgrep)
@@ -516,7 +516,7 @@
  '(lsp-intelephense-files-max-size 10485760)
  '(package-selected-packages
    (quote
-    (docker docker-compose-mode forecast use-package magit cursor-chg typescript-mode twittering-mode mmm-mode vue-mode stylus-mode flymake lsp-mode mozc-popup mozc-im exec-path-from-shell markdown-preview-mode geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides mozc js-doc add-node-modules-path eslint-fix prettier-js go-mode dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp ace-jump-mode undohist helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema)))
+    (wgrep-helm docker docker-compose-mode forecast use-package magit cursor-chg typescript-mode twittering-mode mmm-mode vue-mode stylus-mode flymake lsp-mode mozc-popup mozc-im exec-path-from-shell markdown-preview-mode geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides mozc js-doc add-node-modules-path eslint-fix prettier-js go-mode dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp ace-jump-mode undohist helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema)))
  '(prolog-program-name
    (quote
     (((getenv "EPROLOG")
