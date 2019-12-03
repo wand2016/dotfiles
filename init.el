@@ -314,8 +314,11 @@
 (use-package rg
   :config
   (rg-enable-menu))
-
 (use-package wgrep)
+
+(autoload 'wgrep-rg-setup "wgrep-rg")
+(add-hook 'rg-mode-hook 'wgrep-rg-setup)
+
 
 ;; grep,findの実行ファイルの場所の指定
 (when (eq system-type 'windows-nt)
