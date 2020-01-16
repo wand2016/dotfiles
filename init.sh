@@ -10,3 +10,7 @@ sudo apt-get install -y ripgrep
 mkdir ~/.fonts
 cp ./fonts/MyricaM.TTC ~/.fonts/MyricaM.TTC
 fc-cache -fv
+
+
+sudo apt-get install -y python3-pip
+pip3 install 'python-language-server[all]'
