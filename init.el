@@ -439,9 +439,18 @@
   :commands org-agenda
   :mode (("\\.org\\'" . org-mode))
   :init
+  ;; define org root and subdirectories
   (setq org-directory "~/org/")
+  (setq org-subdirectory-names '("projects" "study"))
+  (setq org-subdirectories
+        (mapcar (lambda (subdirectory-name)
+                  (concat org-directory subdirectory-name))
+                org-subdirectory-names))
+
+  ;; define org entry point and other agenda files
   (setq org-default-notes-file (concat org-directory "main.org"))
-  (setq org-agenda-files (list org-directory))
+  (setq org-agenda-files (append (list org-directory) org-subdirectories))
+
   (defun my:org-goto-inbox ()
     (interactive)
     (find-file org-default-notes-file))
