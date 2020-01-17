@@ -544,7 +544,6 @@
  '(org-agenda-include-diary t)
  '(org-agenda-restore-windows-after-quit t)
  '(org-agenda-start-with-clockreport-mode t)
- '(org-extend-today-until 4)
  '(org-indirect-buffer-display (quote dedicated-frame))
  '(package-selected-packages
    (quote
