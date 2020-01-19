@@ -543,7 +543,6 @@
  '(lsp-intelephense-files-max-size 10485760)
  '(org-agenda-include-diary t)
  '(org-agenda-restore-windows-after-quit t)
- '(org-agenda-start-with-clockreport-mode t)
  '(org-indirect-buffer-display (quote dedicated-frame))
  '(package-selected-packages
    (quote
