@@ -541,6 +541,7 @@
  '(grep-find-template
    "find <D> <X> -type f <F> -exec grep <C> -nH -e <R> \\{\\} +")
  '(lsp-intelephense-files-max-size 10485760)
+ '(org-extend-today-until 7)
  '(org-agenda-include-diary t)
  '(org-agenda-restore-windows-after-quit t)
  '(org-indirect-buffer-display (quote dedicated-frame))
