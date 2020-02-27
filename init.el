@@ -351,10 +351,6 @@
 
 
 
-
-(require 'ace-jump-config)
-
-
 (use-package yasnippet
   :config
   (yas-global-mode t))
@@ -527,6 +523,11 @@
   :bind (("C-c g" . 'magit-status)))
 
 
+(use-package ace-jump
+  :bind (("C-c j j" . 'ace-jump-mode)
+         ("C-c j c" . 'ace-jump-char-mode)
+         ("C-c j w" . 'ace-jump-word-mode)
+         ("C-c j l" . 'ace-jump-line-mode)))
 
 ;;;========================================
 ;;; キーバインド
