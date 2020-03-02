@@ -554,7 +554,7 @@
  '(org-indirect-buffer-display (quote dedicated-frame))
  '(package-selected-packages
    (quote
-    (phpunit composer editorconfig rg wgrep-helm docker docker-compose-mode forecast use-package magit cursor-chg typescript-mode twittering-mode mmm-mode vue-mode stylus-mode flymake lsp-mode mozc-popup mozc-im exec-path-from-shell markdown-preview-mode geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides mozc js-doc add-node-modules-path eslint-fix prettier-js go-mode dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp ace-jump-mode undohist helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema)))
+    (org-projectile helm-projectile phpunit composer editorconfig rg wgrep-helm docker docker-compose-mode forecast use-package magit cursor-chg typescript-mode twittering-mode mmm-mode vue-mode stylus-mode flymake lsp-mode mozc-popup mozc-im exec-path-from-shell markdown-preview-mode geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides mozc js-doc add-node-modules-path eslint-fix prettier-js go-mode dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp ace-jump-mode undohist helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema)))
  '(prolog-program-name
    (quote
     (((getenv "EPROLOG")
