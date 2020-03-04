@@ -529,6 +529,10 @@
          ("C-c j w" . 'ace-jump-word-mode)
          ("C-c j l" . 'ace-jump-line-mode)))
 
+(use-package hcl-mode
+  :mode (("\\.tf\\'" . hcl-mode)))
+
+
 ;;;========================================
 ;;; キーバインド
 ;;; 追加機能とかのもあるのでさいご
