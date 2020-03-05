@@ -365,8 +365,11 @@
 (use-package js2-mode
   :mode (("\\.js\\'" . js2-mode)))
 
+(use-package php-mode
+  :mode (("\\.php\\'" . php-mode))
+  :config
+  (setq php-mode-coding-style 'psr2))
 
-(require 'php-config)
 
 (use-package phpunit
   :bind (:map php-mode-map
