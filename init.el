@@ -362,7 +362,10 @@
 
 (require 'my-lsp-config)
 
-(require 'js-config)
+(use-package js2-mode
+  :mode (("\\.js\\'" . js2-mode)))
+
+
 (require 'php-config)
 
 (use-package phpunit
