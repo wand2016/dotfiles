@@ -529,7 +529,7 @@
   :bind (("C-c g" . 'magit-status)))
 
 
-(use-package ace-jump
+(use-package ace-jump-mode
   :bind (("C-c j j" . 'ace-jump-mode)
          ("C-c j c" . 'ace-jump-char-mode)
          ("C-c j w" . 'ace-jump-word-mode)
