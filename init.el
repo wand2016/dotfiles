@@ -448,7 +448,7 @@
   :init
   ;; define org root and subdirectories
   (setq org-directory "~/org/")
-  (setq org-subdirectory-names '("projects" "study"))
+  (setq org-subdirectory-names '("projects" "study" "job"))
   (setq org-subdirectories
         (mapcar (lambda (subdirectory-name)
                   (concat org-directory subdirectory-name))
