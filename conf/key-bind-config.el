@@ -15,7 +15,12 @@
 
 ;;macos
 (when (eq system-type 'darwin)
-  (setq mac-right-command-modifier 'hyper))
+  (progn
+    (setq mac-option-key-is-meta nil)
+    (setq mac-command-key-is-meta t)
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier nil)
+    (message "Mac OS X")))
 
 
 ;; C-mにnewline-and-indentを割り当てる
