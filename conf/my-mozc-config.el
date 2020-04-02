@@ -22,6 +22,8 @@
 ;; IMEトグル
 (global-set-key (kbd "C-\\") 'toggle-input-method)
 (define-key isearch-mode-map (kbd "C-\\") 'isearch-toggle-input-method)
+(global-set-key (kbd "C-_") 'toggle-input-method)
+(define-key isearch-mode-map (kbd "C-_") 'isearch-toggle-input-method)
 
 ;; mozc-cursor-color を利用するための対策
 ;; (defvar mozc-im-mode nil)

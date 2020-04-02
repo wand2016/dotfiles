@@ -279,6 +279,8 @@
 ;; undo-tree
 ;; 履歴樹形図
 (use-package undo-tree
+  :bind (:map undo-tree-map
+              ("C-_" . nil))
   :config
   (global-undo-tree-mode))
 
