@@ -481,7 +481,7 @@
   :bind
   (("C-c a" . org-agenda)
    ("C-c c" . org-capture)
-   ("C-c g" . org-clock-goto)
+   ;; ("C-c g" . org-clock-goto)
    ("C-c i" . my:org-goto-inbox)
    :map org-mode-map
    ("C-m" . org-return-indent)
@@ -562,7 +562,9 @@
  '(lsp-intelephense-files-max-size 10485760)
  '(org-agenda-include-diary t)
  '(org-agenda-restore-windows-after-quit t)
- ;; '(org-extend-today-until 7)
+ '(org-clocktable-defaults
+   (quote
+    (:maxlevel 2 :lang "en" :scope file :block nil :wstart 1 :mstart 1 :tstart nil :tend nil :step nil :stepskip0 t :fileskip0 t :tags nil :emphasize nil :link nil :narrow 40! :indent t :formula nil :timestamp nil :level nil :tcolumns nil :formatter nil)))
  '(org-indirect-buffer-display (quote dedicated-frame))
  '(package-selected-packages
    (quote
