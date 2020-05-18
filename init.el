@@ -123,6 +123,9 @@
 (add-hook 'prog-mode-hook
           (lambda () (whitespace-mode t)))
 
+(add-hook 'yaml-mode-hook
+          (lambda () (whitespace-mode t)))
+
 ;; カッコがきれいなやつ
 (use-package cl-lib)
 (use-package color)
