@@ -245,9 +245,6 @@
     <keyboard-shortcut first-keystroke="shift alt comma" />
     <keyboard-shortcut first-keystroke="alt less" />
   </action>
-  <action id="Emacs+.TWEnd">
-    <keyboard-shortcut first-keystroke="shift alt period" />
-  </action>
   <action id="Emacs+.TWInterrupt">
     <keyboard-shortcut first-keystroke="ctrl g" />
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="o" />
