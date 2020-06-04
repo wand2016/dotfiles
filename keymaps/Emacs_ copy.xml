@@ -65,7 +65,6 @@
     <keyboard-shortcut first-keystroke="ctrl i" />
   </action>
   <action id="EditorTextEnd">
-    <keyboard-shortcut first-keystroke="shift alt period" />
     <keyboard-shortcut first-keystroke="alt greater" />
   </action>
   <action id="EditorTextStart">
@@ -247,7 +246,6 @@
     <keyboard-shortcut first-keystroke="alt less" />
   </action>
   <action id="Emacs+.TWEnd">
-    <keyboard-shortcut first-keystroke="shift alt period" />
     <keyboard-shortcut first-keystroke="alt greater" />
   </action>
   <action id="Emacs+.TWInterrupt">
@@ -315,7 +313,7 @@
     <mouse-shortcut keystroke="control button1" />
   </action>
   <action id="GotoImplementation">
-    <keyboard-shortcut first-keystroke="ctrl u" second-keystroke="alt period" />
+    <keyboard-shortcut first-keystroke="shift alt period" />
   </action>
   <action id="GotoLine">
     <keyboard-shortcut first-keystroke="alt g" second-keystroke="g" />
@@ -332,6 +330,9 @@
   </action>
   <action id="ImplementMethods" />
   <action id="JumpToLastChange" />
+  <action id="List-selectLastRow">
+    <keyboard-shortcut first-keystroke="alt greater" />
+  </action>
   <action id="MaximizeToolWindow">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="1" />
   </action>
@@ -361,6 +362,9 @@
   <action id="Switcher" />
   <action id="SynchronizeCurrentFile">
     <keyboard-shortcut first-keystroke="escape" second-keystroke="u" />
+  </action>
+  <action id="Table-selectLastRow">
+    <keyboard-shortcut first-keystroke="alt greater" />
   </action>
   <action id="ToggleBookmark">
     <keyboard-shortcut first-keystroke="ctrl f10" />
