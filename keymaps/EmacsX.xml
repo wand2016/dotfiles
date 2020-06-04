@@ -1,4 +1,4 @@
-<keymap version="1" name="Emacs+ copy1" parent="Emacs">
+<keymap version="1" name="EmacsX" parent="Emacs">
   <action id="$Copy" />
   <action id="$Cut" />
   <action id="$Paste" />
