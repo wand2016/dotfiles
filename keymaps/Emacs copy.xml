@@ -1,5 +1,0 @@
-<keymap version="1" name="Emacs copy" parent="Emacs">
-  <action id="EditorEscape">
-    <keyboard-shortcut first-keystroke="ctrl g" />
-  </action>
-</keymap>
