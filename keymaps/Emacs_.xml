@@ -1,12 +1,7 @@
-<keymap version="1" name="EmacsX" parent="Emacs">
+<keymap version="1" name="Emacs+" parent="Emacs">
   <action id="$Copy" />
   <action id="$Cut" />
   <action id="$Paste" />
-  <action id="Back">
-    <keyboard-shortcut first-keystroke="ctrl alt left" />
-    <mouse-shortcut keystroke="button4" />
-    <keyboard-shortcut first-keystroke="alt comma" />
-  </action>
   <action id="CheckinProject" />
   <action id="CommentByLineComment">
     <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="ctrl c" />
@@ -16,11 +11,6 @@
     <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="ctrl e" />
   </action>
   <action id="Diff.ShowDiff" />
-  <action id="EditorBackSpace">
-    <keyboard-shortcut first-keystroke="back_space" />
-    <keyboard-shortcut first-keystroke="shift back_space" />
-    <keyboard-shortcut first-keystroke="ctrl h" />
-  </action>
   <action id="EditorCodeBlockEnd">
     <keyboard-shortcut first-keystroke="ctrl alt d" />
   </action>
@@ -61,10 +51,8 @@
     <keyboard-shortcut first-keystroke="ctrl m" />
   </action>
   <action id="EditorSwapSelectionBoundaries" />
-  <action id="EditorTab">
-    <keyboard-shortcut first-keystroke="ctrl i" />
-  </action>
   <action id="EditorTextEnd">
+    <keyboard-shortcut first-keystroke="shift alt period" />
     <keyboard-shortcut first-keystroke="alt greater" />
   </action>
   <action id="EditorTextStart">
@@ -265,6 +253,9 @@
   <action id="Emacs+.TWSelectPrevious">
     <keyboard-shortcut first-keystroke="ctrl p" />
   </action>
+  <action id="Emacs+.TransposeChars">
+    <keyboard-shortcut first-keystroke="ctrl t" />
+  </action>
   <action id="Emacs+.TransposeLines">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="ctrl t" />
   </action>
@@ -303,19 +294,16 @@
   <action id="FindUsages">
     <keyboard-shortcut first-keystroke="alt f7" />
   </action>
-  <action id="Generate.Missing.Members.ES6" />
-  <action id="Generate.Missing.Members.TypeScript" />
   <action id="GotoAction">
     <keyboard-shortcut first-keystroke="alt x" />
   </action>
-  <action id="GotoCustomRegion" />
   <action id="GotoDeclaration">
     <keyboard-shortcut first-keystroke="alt period" />
     <keyboard-shortcut first-keystroke="escape" second-keystroke="period" />
     <mouse-shortcut keystroke="control button1" />
   </action>
   <action id="GotoImplementation">
-    <keyboard-shortcut first-keystroke="ctrl alt period" />
+    <keyboard-shortcut first-keystroke="ctrl u" second-keystroke="alt period" />
   </action>
   <action id="GotoLine">
     <keyboard-shortcut first-keystroke="alt g" second-keystroke="g" />
@@ -330,11 +318,7 @@
   <action id="HideActiveWindow">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="0" />
   </action>
-  <action id="ImplementMethods" />
   <action id="JumpToLastChange" />
-  <action id="List-selectLastRow">
-    <keyboard-shortcut first-keystroke="alt greater" />
-  </action>
   <action id="MaximizeToolWindow">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="1" />
   </action>
@@ -362,12 +346,6 @@
     <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="ctrl n" />
   </action>
   <action id="Switcher" />
-  <action id="SynchronizeCurrentFile">
-    <keyboard-shortcut first-keystroke="escape" second-keystroke="u" />
-  </action>
-  <action id="Table-selectLastRow">
-    <keyboard-shortcut first-keystroke="alt greater" />
-  </action>
   <action id="ToggleBookmark">
     <keyboard-shortcut first-keystroke="ctrl f10" />
   </action>
@@ -377,8 +355,6 @@
   <action id="ToggleTemporaryLineBreakpoint">
     <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="ctrl t" />
   </action>
-  <action id="TypeHierarchy" />
-  <action id="TypeHierarchyBase.BaseOnThisType" />
   <action id="UnsplitAll" />
   <action id="Vcs.QuickListPopupAction">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="v" />
