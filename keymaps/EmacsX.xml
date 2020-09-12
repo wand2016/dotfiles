@@ -35,6 +35,9 @@
   </action>
   <action id="EditorCutLineBackward" />
   <action id="EditorCutLineEnd" />
+  <action id="EditorDeleteLine">
+    <keyboard-shortcut first-keystroke="ctrl k" />
+  </action>
   <action id="EditorDeleteToWordStart" />
   <action id="EditorEscape">
     <keyboard-shortcut first-keystroke="escape" second-keystroke="escape" />
