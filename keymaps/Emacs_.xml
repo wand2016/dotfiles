@@ -37,10 +37,10 @@
   <action id="EditorKillToWordEnd" />
   <action id="EditorKillToWordStart" />
   <action id="EditorNextWord">
-    <keyboard-shortcut first-keystroke="alt f" />
+    <keyboard-shortcut first-keystroke="ctrl alt f" />
   </action>
   <action id="EditorPreviousWord">
-    <keyboard-shortcut first-keystroke="alt b" />
+    <keyboard-shortcut first-keystroke="ctrl alt b" />
   </action>
   <action id="EditorScrollToCenter" />
   <action id="EditorSelectWord">
@@ -335,7 +335,6 @@
   <action id="RunToCursor">
     <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="ctrl u" />
   </action>
-  <action id="ShowFilterPopup" />
   <action id="ShowUsages">
     <keyboard-shortcut first-keystroke="ctrl alt f7" />
     <keyboard-shortcut first-keystroke="shift alt s" />
@@ -357,7 +356,6 @@
     <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="ctrl t" />
   </action>
   <action id="UnsplitAll" />
-  <action id="UsageGrouping.FileStructure" />
   <action id="Vcs.QuickListPopupAction">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="v" />
   </action>
