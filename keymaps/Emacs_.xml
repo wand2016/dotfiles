@@ -2,11 +2,6 @@
   <action id="$Copy" />
   <action id="$Cut" />
   <action id="$Paste" />
-  <action id="Back">
-    <keyboard-shortcut first-keystroke="ctrl alt left" />
-    <mouse-shortcut keystroke="button4" />
-    <keyboard-shortcut first-keystroke="alt comma" />
-  </action>
   <action id="CheckinProject" />
   <action id="CommentByLineComment">
     <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="ctrl c" />
@@ -302,7 +297,6 @@
   <action id="GotoAction">
     <keyboard-shortcut first-keystroke="alt x" />
   </action>
-  <action id="GotoCustomRegion" />
   <action id="GotoDeclaration">
     <keyboard-shortcut first-keystroke="alt period" />
     <keyboard-shortcut first-keystroke="escape" second-keystroke="period" />
@@ -310,7 +304,6 @@
   </action>
   <action id="GotoImplementation">
     <keyboard-shortcut first-keystroke="ctrl u" second-keystroke="alt period" />
-    <keyboard-shortcut first-keystroke="ctrl alt period" />
   </action>
   <action id="GotoLine">
     <keyboard-shortcut first-keystroke="alt g" second-keystroke="g" />
