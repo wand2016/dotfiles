@@ -177,9 +177,6 @@
   <action id="Emacs+.ISYankLine">
     <keyboard-shortcut first-keystroke="ctrl y" />
   </action>
-  <action id="Emacs+.ISYankNextWord">
-    <keyboard-shortcut first-keystroke="ctrl w" />
-  </action>
   <action id="Emacs+.ISearchBackward">
     <keyboard-shortcut first-keystroke="ctrl r" />
   </action>
