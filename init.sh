@@ -20,3 +20,6 @@ fc-cache -fv
 
 sudo apt-get install -y python3-pip
 pip3 install 'python-language-server[all]'
+
+sudo apt-get -y install fcitx-mozc dbus-x11 x11-xserver-utils
+uuidgen | sudo tee /var/lib/dbus/machine-id
