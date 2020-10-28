@@ -37,6 +37,9 @@
       `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
 
 
+;; .# symlinkやめる
+(setq create-lockfiles nil)
+
 ;;;========================================
 ;;; ELPA, auto-install
 ;;;========================================
