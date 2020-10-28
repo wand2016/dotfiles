@@ -43,7 +43,6 @@
     <keyboard-shortcut first-keystroke="ctrl u" second-keystroke="shift alt 6" />
     <keyboard-shortcut first-keystroke="ctrl u" second-keystroke="alt circumflex" />
   </action>
-  <action id="EditorKillRegion" />
   <action id="EditorKillToWordEnd" />
   <action id="EditorKillToWordStart" />
   <action id="EditorNextWord">
@@ -201,9 +200,6 @@
   </action>
   <action id="Emacs+.KillLine">
     <keyboard-shortcut first-keystroke="ctrl k" />
-  </action>
-  <action id="Emacs+.KillRegion">
-    <keyboard-shortcut first-keystroke="ctrl w" />
   </action>
   <action id="Emacs+.KillWholeLine">
     <keyboard-shortcut first-keystroke="shift ctrl back_space" />
