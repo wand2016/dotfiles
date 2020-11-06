@@ -5,7 +5,6 @@
       <mapping pattern="Faq" type="PLAIN_TEXT" />
       <mapping ext="pu" type="PLAIN_TEXT" />
       <mapping ext="vtl" type="PLAIN_TEXT" />
-      <mapping ext="graphql" type="PLAIN_TEXT" />
       <removed_mapping pattern="CartContentDeleteCartContentIdTest.php" approved="true" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
