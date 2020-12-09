@@ -236,42 +236,42 @@
 
 
 
-(use-package company
-  :config
-  (global-company-mode) ; 全バッファで有効にする 
-  (setq company-idle-delay 0
-        company-minimum-prefix-length 2
-        company-selection-wrap-around t ; 候補の一番下でさらに下に行こうとすると一番上に戻る
-        company-backends (mapcar #'company-mode/backend-with-yas company-backends))
+;; (use-package company
+;;   :config
+;;   (global-company-mode) ; 全バッファで有効にする 
+;;   (setq company-idle-delay 0
+;;         company-minimum-prefix-length 2
+;;         company-selection-wrap-around t ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+;;         company-backends (mapcar #'company-mode/backend-with-yas company-backends))
   
-  :bind (:map company-active-map
-              ("M-n" . nil)
-              ("M-p" . nil)
-              ("C-h" . nil)
-              ("C-n" . company-select-next)
-              ("C-p" . company-select-previous)
-              ("<tab>" . company-complete-common2)
-              ("<backtab>" . 'company-select-previous))
+;;   :bind (:map company-active-map
+;;               ("M-n" . nil)
+;;               ("M-p" . nil)
+;;               ("C-h" . nil)
+;;               ("C-n" . company-select-next)
+;;               ("C-p" . company-select-previous)
+;;               ("<tab>" . company-complete-common2)
+;;               ("<backtab>" . 'company-select-previous))
 
-  :init
-  ;; ========================================
-  ;; 候補のソート
-  ;; 
-  ;; [標準]
-  ;; - company-sort-by-occurrence
-  ;;   現在のバッファの現在見えている部分の中で各候補を検索
-  ;;   その結果からランク付けしてソート
-  ;; - company-sort-by-backend-importance
-  ;;   backendがgroup（リスト）のとき、:withキーワードの
-  ;;   前にあるbackendから生成されたものが前に並び，
-  ;;   後ろにあるbackendから生成されたものが後ろに並ぶ
-  ;; [company-statictics]
-  ;; - company-sort-by-statictics
-  ;;     補完候補の履歴でソート
-  ;; ========================================
-  (add-hook 'after-init-hook #'company-statistics-mode)
-  (setq company-transformers
-        '(company-sort-by-statistics company-sort-by-backend-importance)))
+;;   :init
+;;   ;; ========================================
+;;   ;; 候補のソート
+;;   ;; 
+;;   ;; [標準]
+;;   ;; - company-sort-by-occurrence
+;;   ;;   現在のバッファの現在見えている部分の中で各候補を検索
+;;   ;;   その結果からランク付けしてソート
+;;   ;; - company-sort-by-backend-importance
+;;   ;;   backendがgroup（リスト）のとき、:withキーワードの
+;;   ;;   前にあるbackendから生成されたものが前に並び，
+;;   ;;   後ろにあるbackendから生成されたものが後ろに並ぶ
+;;   ;; [company-statictics]
+;;   ;; - company-sort-by-statictics
+;;   ;;     補完候補の履歴でソート
+;;   ;; ========================================
+;;   (add-hook 'after-init-hook #'company-statistics-mode)
+;;   (setq company-transformers
+;;         '(company-sort-by-statistics company-sort-by-backend-importance)))
 
 
 
