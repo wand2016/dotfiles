@@ -155,6 +155,38 @@
             </plugin>
           </value>
         </entry>
+        <entry key="*.dio">
+          <value>
+            <plugin>
+              <option name="myPluginId" value="de.docs_as_co.intellij.plugin.diagramsnet" />
+              <option name="myPluginName" value="Diagrams.net Integration" />
+            </plugin>
+          </value>
+        </entry>
+        <entry key="*.dio.png">
+          <value>
+            <plugin>
+              <option name="myPluginId" value="de.docs_as_co.intellij.plugin.diagramsnet" />
+              <option name="myPluginName" value="Diagrams.net Integration" />
+            </plugin>
+          </value>
+        </entry>
+        <entry key="*.dio.svg">
+          <value>
+            <plugin>
+              <option name="myPluginId" value="de.docs_as_co.intellij.plugin.diagramsnet" />
+              <option name="myPluginName" value="Diagrams.net Integration" />
+            </plugin>
+          </value>
+        </entry>
+        <entry key="*.dio.xml">
+          <value>
+            <plugin>
+              <option name="myPluginId" value="de.docs_as_co.intellij.plugin.diagramsnet" />
+              <option name="myPluginName" value="Diagrams.net Integration" />
+            </plugin>
+          </value>
+        </entry>
         <entry key="*.doc">
           <value>
             <plugin>
@@ -179,6 +211,38 @@
               <option name="myPluginId" value="com.intellij" />
               <option name="myPluginName" value="IDEA CORE" />
               <option name="myBundled" value="true" />
+            </plugin>
+          </value>
+        </entry>
+        <entry key="*.drawio">
+          <value>
+            <plugin>
+              <option name="myPluginId" value="de.docs_as_co.intellij.plugin.diagramsnet" />
+              <option name="myPluginName" value="Diagrams.net Integration" />
+            </plugin>
+          </value>
+        </entry>
+        <entry key="*.drawio.png">
+          <value>
+            <plugin>
+              <option name="myPluginId" value="de.docs_as_co.intellij.plugin.diagramsnet" />
+              <option name="myPluginName" value="Diagrams.net Integration" />
+            </plugin>
+          </value>
+        </entry>
+        <entry key="*.drawio.svg">
+          <value>
+            <plugin>
+              <option name="myPluginId" value="de.docs_as_co.intellij.plugin.diagramsnet" />
+              <option name="myPluginName" value="Diagrams.net Integration" />
+            </plugin>
+          </value>
+        </entry>
+        <entry key="*.drawio.xml">
+          <value>
+            <plugin>
+              <option name="myPluginId" value="de.docs_as_co.intellij.plugin.diagramsnet" />
+              <option name="myPluginName" value="Diagrams.net Integration" />
             </plugin>
           </value>
         </entry>
