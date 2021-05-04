@@ -1,6 +1,7 @@
 <application>
   <component name="FileTypeManager" version="18">
     <extensionMap>
+      <mapping pattern="routes" type="AUTO_DETECTED" />
       <mapping pattern="TODO" type="PLAIN_TEXT" />
       <mapping pattern="Faq" type="PLAIN_TEXT" />
       <mapping ext="pu" type="PLAIN_TEXT" />
