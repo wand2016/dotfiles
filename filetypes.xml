@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="routes" type="AUTO_DETECTED" />
       <mapping pattern="TODO" type="PLAIN_TEXT" />
+      <mapping pattern=".env" type="PLAIN_TEXT" />
       <mapping pattern="Faq" type="PLAIN_TEXT" />
       <mapping ext="pu" type="PLAIN_TEXT" />
       <mapping ext="vtl" type="PLAIN_TEXT" />
