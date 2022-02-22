@@ -7,6 +7,7 @@
       <mapping pattern="Faq" type="PLAIN_TEXT" />
       <mapping ext="pu" type="PLAIN_TEXT" />
       <mapping ext="vtl" type="PLAIN_TEXT" />
+      <mapping ext="plantuml" type="PlantUML file" />
       <removed_mapping pattern="CartContentDeleteCartContentIdTest.php" approved="true" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
