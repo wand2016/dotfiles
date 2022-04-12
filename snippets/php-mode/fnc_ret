@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: function statement with return type
+# key: fnc:
+# group: definitions
+# --
+
+/**
+ * @param ${2:$(yas-text)}
+ * @return ${3:$(yas-text)}
+ */
+${4:public }function ${1:name}(${2:type $arg}): ${3:type}
+{
+    $0
+}

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: strict_types
+# key: st
+# group: definitions
+# --
+declare(strict_types=1);

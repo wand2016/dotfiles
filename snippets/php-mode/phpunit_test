@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: DAIKI Horiyama <d19921207@gmail.com>
+# name: test annotation
+# key: *test
+# group: PHPUnit
+# --
+* @test${0:
+*}

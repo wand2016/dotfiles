@@ -1,0 +1,2 @@
+#!/bin/sh
+docker container run --rm -i -v $(pwd):/source -v ~/.emacs.d/bin/common/pandoc/resources:/root/resources jagregory/pandoc -s --self-contained -c /root/resources/github.css -t html5  --metadata pagetitle=hoge
