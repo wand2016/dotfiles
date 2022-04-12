@@ -11,11 +11,6 @@
     <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="ctrl e" />
   </action>
   <action id="Diff.ShowDiff" />
-  <action id="EditorBackSpace">
-    <keyboard-shortcut first-keystroke="back_space" />
-    <keyboard-shortcut first-keystroke="shift back_space" />
-    <keyboard-shortcut first-keystroke="ctrl h" />
-  </action>
   <action id="EditorCodeBlockEnd">
     <keyboard-shortcut first-keystroke="ctrl alt d" />
   </action>
@@ -323,7 +318,6 @@
   <action id="HideActiveWindow">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="0" />
   </action>
-  <action id="Images.Thumbnails.UpFolder" />
   <action id="JumpToLastChange" />
   <action id="MaximizeToolWindow">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="1" />
@@ -361,8 +355,6 @@
   <action id="ToggleTemporaryLineBreakpoint">
     <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="ctrl t" />
   </action>
-  <action id="TypeHierarchy" />
-  <action id="TypeHierarchyBase.BaseOnThisType" />
   <action id="UnsplitAll" />
   <action id="Vcs.QuickListPopupAction">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="v" />
