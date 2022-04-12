@@ -1,0 +1,14 @@
+<application>
+  <component name="FileTypeManager" version="18">
+    <extensionMap>
+      <mapping pattern="routes" type="AUTO_DETECTED" />
+      <mapping pattern="TODO" type="PLAIN_TEXT" />
+      <mapping pattern=".env" type="PLAIN_TEXT" />
+      <mapping pattern="Faq" type="PLAIN_TEXT" />
+      <mapping ext="pu" type="PLAIN_TEXT" />
+      <mapping ext="vtl" type="PLAIN_TEXT" />
+      <mapping ext="plantuml" type="PlantUML file" />
+      <removed_mapping pattern="CartContentDeleteCartContentIdTest.php" approved="true" type="PLAIN_TEXT" />
+    </extensionMap>
+  </component>
+</application>
