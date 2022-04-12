@@ -1,0 +1,10 @@
+<application>
+  <component name="NodeJsLocalInterpreterManager">
+    <local-interpreter path="$USER_HOME$/.asdf/shims/node" />
+    <local-interpreter path="$USER_HOME$/.asdf/installs/nodejs/17.9.0/bin/node" />
+    <local-interpreter path="$USER_HOME$/.asdf/installs/nodejs/17.4.0/bin/node" />
+    <local-interpreter path="$USER_HOME$/.asdf/installs/nodejs/16.14.2/bin/node" />
+    <local-interpreter path="$USER_HOME$/.asdf/installs/nodejs/16.13.1/bin/node" />
+    <local-interpreter path="$USER_HOME$/.asdf/installs/nodejs/14.18.2/bin/node" />
+  </component>
+</application>
