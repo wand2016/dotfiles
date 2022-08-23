@@ -6,6 +6,7 @@
       <w>chatbot</w>
       <w>eventbridge</w>
       <w>mypage</w>
+      <w>secretsmanager</w>
     </words>
   </component>
 </application>
