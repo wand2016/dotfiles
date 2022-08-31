@@ -7,14 +7,21 @@
       <w>branchenv</w>
       <w>chatbot</w>
       <w>cidrs</w>
+      <w>coip</w>
       <w>edns</w>
+      <w>elasticloadbalancing</w>
+      <w>elbv</w>
       <w>eventbridge</w>
       <w>fullname</w>
       <w>irsa</w>
+      <w>loadbalancer</w>
       <w>mypage</w>
       <w>rpro</w>
       <w>rprocloud</w>
       <w>secretsmanager</w>
+      <w>targetgroup</w>
+      <w>vpcs</w>
+      <w>wafv</w>
     </words>
   </component>
 </application>
