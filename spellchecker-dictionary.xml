@@ -12,6 +12,7 @@
       <w>elasticloadbalancing</w>
       <w>elbv</w>
       <w>eventbridge</w>
+      <w>faas</w>
       <w>fullname</w>
       <w>irsa</w>
       <w>loadbalancer</w>
