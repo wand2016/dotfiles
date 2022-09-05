@@ -25,6 +25,7 @@
       <w>rpro</w>
       <w>rprocloud</w>
       <w>secretsmanager</w>
+      <w>servicediscovery</w>
       <w>targetgroup</w>
       <w>terragrunt</w>
       <w>tflint</w>
