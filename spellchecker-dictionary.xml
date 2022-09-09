@@ -11,6 +11,7 @@
       <w>cidrs</w>
       <w>coip</w>
       <w>edns</w>
+      <w>elasticache</w>
       <w>elasticloadbalancing</w>
       <w>elbv</w>
       <w>eventbridge</w>
