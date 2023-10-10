@@ -68,13 +68,6 @@
   (auto-install-compatibility-setup))
 
 
-;; 環境変数持ち込む
-(use-package exec-path-from-shell
-  :if (not (eq system-type 'windows-nt))
-  :config
-  (exec-path-from-shell-initialize))
-
-
 ;;;========================================
 ;;; タブは使わない
 ;;;========================================
@@ -201,82 +194,6 @@
 (require 'my-rect-edit-config)
 
 
-;; 補完設定
-;; ========================================
-;; tabの挙動をいい感じに
-;; - 候補が1つ  : それを選択
-;; - 候補が複数
-;;   - 挿入可能なprefixがある : それを挿入
-;;   -                   ない : company-select-next
-;; ========================================
-(defun company--insert-candidate2 (candidate)
-  (when (> (length candidate) 0)
-    (setq candidate (substring-no-properties candidate))
-    (if (eq (company-call-backend 'ignore-case) 'keep-prefix)
-        (insert (company-strip-prefix candidate))
-      (if (equal company-prefix candidate)
-          (company-select-next)
-        (delete-region (- (point) (length company-prefix)) (point))
-        (insert candidate)))))
-
-(defun company-complete-common2 ()
-  (interactive)
-  (when (company-manual-begin)
-    (if (and (not (cdr company-candidates))
-             (equal company-common (car company-candidates)))
-        (company-complete-selection)
-      (company--insert-candidate2 company-common))))
-
-;; yasnippetとの連携
-(defvar company-mode/enable-yas t
-  "Enable yasnippet for all backends.")
-(defun company-mode/backend-with-yas (backend)
-  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
-      backend
-    (append (if (consp backend) backend (list backend))
-            '(:with company-yasnippet))))
-
-
-
-;; (use-package company
-;;   :config
-;;   (global-company-mode) ; 全バッファで有効にする 
-;;   (setq company-idle-delay 0
-;;         company-minimum-prefix-length 2
-;;         company-selection-wrap-around t ; 候補の一番下でさらに下に行こうとすると一番上に戻る
-;;         company-backends (mapcar #'company-mode/backend-with-yas company-backends))
-  
-;;   :bind (:map company-active-map
-;;               ("M-n" . nil)
-;;               ("M-p" . nil)
-;;               ("C-h" . nil)
-;;               ("C-n" . company-select-next)
-;;               ("C-p" . company-select-previous)
-;;               ("<tab>" . company-complete-common2)
-;;               ("<backtab>" . 'company-select-previous))
-
-;;   :init
-;;   ;; ========================================
-;;   ;; 候補のソート
-;;   ;; 
-;;   ;; [標準]
-;;   ;; - company-sort-by-occurrence
-;;   ;;   現在のバッファの現在見えている部分の中で各候補を検索
-;;   ;;   その結果からランク付けしてソート
-;;   ;; - company-sort-by-backend-importance
-;;   ;;   backendがgroup（リスト）のとき、:withキーワードの
-;;   ;;   前にあるbackendから生成されたものが前に並び，
-;;   ;;   後ろにあるbackendから生成されたものが後ろに並ぶ
-;;   ;; [company-statictics]
-;;   ;; - company-sort-by-statictics
-;;   ;;     補完候補の履歴でソート
-;;   ;; ========================================
-;;   (add-hook 'after-init-hook #'company-statistics-mode)
-;;   (setq company-transformers
-;;         '(company-sort-by-statistics company-sort-by-backend-importance)))
-
-
-
 ;; undohist
 ;; ファイルクローズ後も履歴をさかのぼれる
 (use-package undohist
@@ -325,24 +242,6 @@
 
 
 
-;; grep
-
-(use-package rg
-  :config
-  (rg-enable-menu))
-(use-package wgrep)
-
-(autoload 'wgrep-rg-setup "wgrep-rg")
-(add-hook 'rg-mode-hook 'wgrep-rg-setup)
-
-
-;; grep,findの実行ファイルの場所の指定
-(when (eq system-type 'windows-nt)
-  (setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\""
-        grep-program "\"C:\\Program Files\\Git\\usr\\bin\\grep.exe\""
-        null-device "/dev/null"))
-
-
 ;; ediffの設定
 ;; ediffコントロールパネルを別フレームにしない
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
@@ -361,49 +260,6 @@
 
 
 
-(use-package yasnippet
-  :config
-  (yas-global-mode t))
-
-
-;; ========================================
-;;  各種言語の設定
-;; ========================================
-
-(require 'my-lsp-config)
-
-(use-package js2-mode
-  :mode (("\\.js\\'" . js2-mode)))
-
-(use-package php-mode
-  :mode (("\\.php\\'" . php-mode))
-  :config
-  (setq php-mode-coding-style 'psr2))
-
-
-(use-package phpunit
-  :bind (:map php-mode-map
-              ("C-c t" . phpunit-current-test)
-              ("C-c T" . phpunit-current-class)))
-
-;; ========================================
-;;  HTMLの設定
-;; ========================================
-
-
-(use-package web-mode
-  :mode (("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . web-mode)
-         ;; blade template
-         ("\\.blade\\.php\\'" . web-mode))
-  :config
-  (setq web-mode-markup-indent-offset 2))
-
-
-
-(require 'haskell-config)
-
-
-
 ;; lisp
 
 ;; インデントをいい感じにする
@@ -411,42 +267,6 @@
           (lambda ()
             (set (make-local-variable 'lisp-indent-function)
                  'common-lisp-indent-function)))
-
-
-
-;; ========================================
-;; テキストブラウザの設定
-;; ========================================
-(require 'eww-config)
-
-(use-package twittering-mode
-  :config
-  (when (eq system-type 'windows-nt)
-    (setq twittering-curl-program "c:/Program Files/Git/mingw64/bin/curl.exe")))
-
-
-
-;;;========================================
-;;; emacs上でdocker操作
-;;;========================================
-(use-package docker
-  :bind (("C-c d" . 'docker)
-         :map magit-popup-mode-map
-         ("C-t" . nil)))
-
-;;;========================================
-;;; /docker:[user@]<hash>:/
-;;; でコンテナに入れるように
-;;;========================================
-(use-package docker-tramp-compat
-  :config
-  (set-variable 'docker-tramp-use-names t))
-
-;;;========================================
-;;; docker-compose.yml編集用
-;;;========================================
-(use-package docker-compose-mode)
-
 
 
 
@@ -524,46 +344,11 @@
         ("S" . org-save-all-org-buffers)))
 
 
-
-;; forecast
-(use-package forecast
-  :config
-  (setq calendar-latitude 35.7037033
-        calendar-longitude 139.7718418
-        forecast-api-key "ca9f67658afb3820c4a7f3155828befb"))
-
 
 
 (use-package magit
   :commands (magit-status)
   :bind (("C-c g" . 'magit-status)))
-
-
-(use-package ace-jump-mode
-  :bind (("C-c j j" . 'ace-jump-mode)
-         ("C-c j c" . 'ace-jump-char-mode)
-         ("C-c j w" . 'ace-jump-word-mode)
-         ("C-c j l" . 'ace-jump-line-mode)))
-
-(use-package hcl-mode
-  :mode (("\\.tf\\'" . hcl-mode)))
-
-
-
-;; add PATH
-;; flycheck for textlint
-(flycheck-define-checker textlint
-  "A linter for prose."
-  :command ("textlint" "--format" "unix" source-inplace)
-  :error-patterns
-  ((warning line-start (file-name) ":" line ":" column ": "
-            (id (one-or-more (not (any " "))))
-            (message (one-or-more not-newline)
-                     (zero-or-more "\n" (any " ") (one-or-more not-newline)))
-            line-end))
-  :modes (text-mode markdown-mode))
-(add-to-list 'flycheck-checkers 'textlint)
-(add-hook 'markdown-mode-hook 'flycheck-mode)
 
 
 ;;;========================================
@@ -590,7 +375,7 @@
    '(:maxlevel 2 :lang "en" :scope file :block nil :wstart 1 :mstart 1 :tstart nil :tend nil :step nil :stepskip0 t :fileskip0 t :tags nil :emphasize nil :link nil :narrow 40! :indent t :formula nil :timestamp nil :level nil :tcolumns nil :formatter nil))
  '(org-indirect-buffer-display 'dedicated-frame)
  '(package-selected-packages
-   '(with-editor hcl-mode phpunit composer editorconfig rg wgrep-helm docker docker-compose-mode forecast use-package magit cursor-chg typescript-mode twittering-mode mmm-mode stylus-mode flymake lsp-mode mozc-popup mozc-im exec-path-from-shell markdown-preview-mode geben-helm-projectile geben darcula-theme markdown-toc vmd-mode rainbow-delimiters highlight-indent-guides mozc js-doc add-node-modules-path eslint-fix prettier-js go-mode dockerfile-mode git-commit yaml-mode yasnippet-snippets helm-c-yasnippet yasnippet web-mode php-mode markdown-mode abyss-theme csv-mode json-mode neotree haskell-mode omnisharp ace-jump-mode undohist helm-helm-commands helm-pydoc helm-descbinds helm color-moccur company-statistics wgrep undo-tree pymacs popup nxml-mode js2-mode html5-schema))
+   '(with-editor editorconfig use-package magit cursor-chg mmm-mode lsp-mode mozc-popup mozc-im darcula-theme rainbow-delimiters highlight-indent-guides mozc git-commit yaml-mode markdown-mode json-mode undohist helm-helm-commands helm-descbinds helm color-moccur undo-tree popup))
  '(prolog-program-name
    '(((getenv "EPROLOG")
       (eval
